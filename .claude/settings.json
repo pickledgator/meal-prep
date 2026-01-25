@@ -2,6 +2,11 @@
   "permissions": {
     "allow": [
       "WebSearch",
+      "WebFetch",
+      "Read",
+      "Write",
+      "Bash(date:*)",
+      "Bash(mkdir:*)",
       "Skill(meal-prep)"
     ]
   }

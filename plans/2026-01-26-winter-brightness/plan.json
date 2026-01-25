@@ -1,0 +1,107 @@
+{
+  "week_of": "2026-01-26",
+  "folder_name": "2026-01-26-winter-brightness",
+  "generated_at": "2026-01-24T23:45:00Z",
+  "servings": 2,
+  "leftovers": false,
+  "theme": "Winter Brightness",
+  "difficulty": "easy",
+  "meals": [
+    {
+      "id": "m1",
+      "name": "Miso-Glazed Cod",
+      "subtitle": "with Sesame Rice and Roasted Broccolini",
+      "protein": "cod",
+      "protein_category": "seafood",
+      "cuisine": "japanese-inspired",
+      "components": ["miso-ginger-glaze", "sesame-rice", "citrus-ginger-vinaigrette", "gremolata"],
+      "key_ingredients": ["cod fillets", "white miso", "broccolini", "rice", "ginger"],
+      "prep_time_minutes": 10,
+      "cook_time_minutes": 20
+    },
+    {
+      "id": "m2",
+      "name": "Crispy Gnocchi with Brussels Sprouts",
+      "subtitle": "with Brown Butter and Lemon",
+      "protein": "vegetarian",
+      "protein_category": "vegetarian",
+      "cuisine": "italian",
+      "components": ["gremolata"],
+      "key_ingredients": ["potato gnocchi", "brussels sprouts", "butter", "lemon", "parmesan"],
+      "prep_time_minutes": 5,
+      "cook_time_minutes": 20
+    },
+    {
+      "id": "m3",
+      "name": "Citrus-Fennel Braised Chicken",
+      "subtitle": "with Olives and Fresh Herbs",
+      "protein": "chicken thighs",
+      "protein_category": "poultry",
+      "cuisine": "mediterranean",
+      "components": ["citrus-ginger-vinaigrette", "gremolata", "sesame-rice"],
+      "key_ingredients": ["chicken thighs", "fennel", "orange", "olives", "garlic"],
+      "prep_time_minutes": 10,
+      "cook_time_minutes": 25
+    }
+  ],
+  "components": [
+    {
+      "id": "miso-ginger-glaze",
+      "name": "Miso-Ginger Glaze",
+      "type": "glaze",
+      "yield": "1/3 cup",
+      "used_in": ["m1"]
+    },
+    {
+      "id": "citrus-ginger-vinaigrette",
+      "name": "Citrus-Ginger Vinaigrette",
+      "type": "dressing",
+      "yield": "1/2 cup",
+      "used_in": ["m1", "m3"]
+    },
+    {
+      "id": "gremolata",
+      "name": "Gremolata",
+      "type": "garnish",
+      "yield": "1/4 cup",
+      "used_in": ["m1", "m2", "m3"]
+    },
+    {
+      "id": "sesame-rice",
+      "name": "Sesame Rice",
+      "type": "grain",
+      "yield": "3 cups cooked",
+      "used_in": ["m1", "m3"]
+    }
+  ],
+  "grocery": {
+    "produce": [
+      {"item": "Broccolini", "quantity": "1 bunch (6 oz / 170 g)", "meals": ["m1"]},
+      {"item": "Brussels Sprouts", "quantity": "8 oz / 227 g", "meals": ["m2"]},
+      {"item": "Fennel", "quantity": "1 medium bulb", "meals": ["m3"]},
+      {"item": "Garlic", "quantity": "6 cloves", "meals": ["m1", "m2", "m3"]},
+      {"item": "Fresh Ginger", "quantity": "2-inch piece (~1 oz / 28 g)", "meals": ["m1", "m3"]},
+      {"item": "Lemon", "quantity": "3", "meals": ["m1", "m2", "m3"]},
+      {"item": "Orange", "quantity": "2", "meals": ["m1", "m3"]},
+      {"item": "Flat-Leaf Parsley", "quantity": "1 bunch", "meals": ["m1", "m2", "m3"]},
+      {"item": "Scallions", "quantity": "2", "meals": ["m1"]}
+    ],
+    "proteins": [
+      {"item": "Cod Fillets", "quantity": "2 (5-6 oz / 140-170 g each)", "meals": ["m1"]},
+      {"item": "Bone-In, Skin-On Chicken Thighs", "quantity": "4 (about 1.5 lbs / 680 g)", "meals": ["m3"]}
+    ],
+    "dairy_eggs": [
+      {"item": "Unsalted Butter", "quantity": "4 Tbsp (1/2 stick)", "meals": ["m2"]},
+      {"item": "Parmesan Cheese", "quantity": "2 oz / 57 g wedge", "meals": ["m2"]}
+    ],
+    "shelf_stable": [
+      {"item": "White Miso Paste", "quantity": "3 Tbsp", "meals": ["m1"]},
+      {"item": "Jasmine or Long-Grain Rice", "quantity": "1 cup / 200 g", "meals": ["m1", "m3"]},
+      {"item": "Potato Gnocchi", "quantity": "1 lb / 454 g", "meals": ["m2"]},
+      {"item": "Castelvetrano Olives", "quantity": "1/2 cup / 80 g", "meals": ["m3"]},
+      {"item": "Sesame Seeds", "quantity": "1 Tbsp", "meals": ["m1"]},
+      {"item": "Mirin", "quantity": "2 Tbsp", "meals": ["m1"]},
+      {"item": "Chicken Stock", "quantity": "1/2 cup", "meals": ["m3"]}
+    ]
+  }
+}

@@ -9,8 +9,7 @@ interface PlanNavProps {
 }
 
 const navItems = [
-  { label: "Overview", href: "" },
-  { label: "Menu", href: "/menu" },
+  { label: "Menu", href: "" },
   { label: "Grocery", href: "/grocery" },
   { label: "Prep", href: "/prep" },
   { label: "Essentials", href: "/essentials" },

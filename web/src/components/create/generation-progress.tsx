@@ -3,6 +3,7 @@
 import { useEffect, useState, useRef } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 
 interface GenerationProgressProps {
   jobId: string;
@@ -21,11 +22,28 @@ export function GenerationProgress({
   params,
 }: GenerationProgressProps) {
   const [output, setOutput] = useState<string[]>([]);
-  const [status, setStatus] = useState<"running" | "completed" | "failed">(
-    "running"
-  );
+  const [status, setStatus] = useState<
+    "running" | "completed" | "failed" | "cancelled"
+  >("running");
   const [error, setError] = useState<string | null>(null);
+  const [cancelling, setCancelling] = useState(false);
   const outputRef = useRef<HTMLDivElement>(null);
+
+  const handleCancel = async () => {
+    setCancelling(true);
+    try {
+      const response = await fetch(`/api/generate/${jobId}/cancel`, {
+        method: "POST",
+      });
+      if (response.ok) {
+        setStatus("cancelled");
+        setError("Cancelled by user");
+      }
+    } catch (err) {
+      console.error("Failed to cancel:", err);
+    }
+    setCancelling(false);
+  };
 
   useEffect(() => {
     const eventSource = new EventSource(`/api/generate/${jobId}/stream`);
@@ -103,13 +121,29 @@ export function GenerationProgress({
                   <span className="inline-block w-2 h-2 bg-red-500 rounded-full" />
                 </>
               )}
+              {status === "cancelled" && (
+                <>
+                  <span>Cancelled</span>
+                  <span className="inline-block w-2 h-2 bg-yellow-500 rounded-full" />
+                </>
+              )}
             </CardTitle>
-            <div className="flex gap-2">
+            <div className="flex items-center gap-2">
               <Badge variant="outline">{params.meals} meals</Badge>
               <Badge variant="outline">{params.servings} servings</Badge>
               <Badge variant="outline">{params.difficulty}</Badge>
               {params.theme !== "auto" && (
                 <Badge variant="secondary">{params.theme}</Badge>
+              )}
+              {status === "running" && (
+                <Button
+                  variant="destructive"
+                  size="sm"
+                  onClick={handleCancel}
+                  disabled={cancelling}
+                >
+                  {cancelling ? "Cancelling..." : "Cancel"}
+                </Button>
               )}
             </div>
           </div>

@@ -71,7 +71,7 @@ export interface GenerateParams {
 
 export interface GenerateJob {
   id: string;
-  status: "running" | "completed" | "failed";
+  status: "running" | "completed" | "failed" | "cancelled";
   params: GenerateParams;
   output: string[];
   createdAt: string;
