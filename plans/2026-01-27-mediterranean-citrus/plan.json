@@ -1,0 +1,124 @@
+{
+  "week_of": "2026-01-27",
+  "folder_name": "2026-01-27-mediterranean-citrus",
+  "generated_at": "2026-01-24T12:00:00Z",
+  "servings": 2,
+  "leftovers": false,
+  "theme": "Mediterranean Citrus",
+  "difficulty": "normal",
+  "meals": [
+    {
+      "id": "m1",
+      "name": "Seared Cod with Lemon-Tahini",
+      "subtitle": "with Garlicky Kale & Parsley Gremolata",
+      "protein": "cod",
+      "protein_category": "seafood",
+      "cuisine": "mediterranean",
+      "components": ["lemon-tahini-dressing", "parsley-gremolata"],
+      "key_ingredients": ["cod fillets", "lacinato kale", "tahini", "lemon", "parsley", "garlic"],
+      "prep_time_minutes": 10,
+      "cook_time_minutes": 15
+    },
+    {
+      "id": "m2",
+      "name": "Za'atar Chicken Thighs",
+      "subtitle": "with Roasted Cauliflower & Crispy Kale",
+      "protein": "chicken thighs",
+      "protein_category": "poultry",
+      "cuisine": "middle eastern",
+      "components": ["lemon-tahini-dressing"],
+      "key_ingredients": ["chicken thighs", "cauliflower", "lacinato kale", "za'atar", "tahini", "lemon"],
+      "prep_time_minutes": 15,
+      "cook_time_minutes": 35
+    },
+    {
+      "id": "m3",
+      "name": "Shrimp & Farro Bowl",
+      "subtitle": "with Massaged Kale & Citrus",
+      "protein": "shrimp",
+      "protein_category": "seafood",
+      "cuisine": "mediterranean",
+      "components": ["lemon-tahini-dressing", "farro"],
+      "key_ingredients": ["shrimp", "farro", "lacinato kale", "cherry tomatoes", "lemon", "parsley"],
+      "prep_time_minutes": 10,
+      "cook_time_minutes": 10
+    },
+    {
+      "id": "m4",
+      "name": "Lamb Kofta",
+      "subtitle": "with Farro & Charred Shallot Vinaigrette",
+      "protein": "ground lamb",
+      "protein_category": "red meat",
+      "cuisine": "middle eastern",
+      "components": ["charred-shallot-vinaigrette", "farro"],
+      "key_ingredients": ["ground lamb", "farro", "cauliflower", "shallots", "parsley", "mint"],
+      "prep_time_minutes": 15,
+      "cook_time_minutes": 15
+    }
+  ],
+  "components": [
+    {
+      "id": "lemon-tahini-dressing",
+      "name": "Lemon-Tahini Dressing",
+      "type": "sauce",
+      "yield": "1 cup",
+      "used_in": ["m1", "m2", "m3"]
+    },
+    {
+      "id": "parsley-gremolata",
+      "name": "Parsley Gremolata",
+      "type": "topping",
+      "yield": "1/3 cup",
+      "used_in": ["m1"]
+    },
+    {
+      "id": "charred-shallot-vinaigrette",
+      "name": "Charred Shallot Vinaigrette",
+      "type": "vinaigrette",
+      "yield": "1/2 cup",
+      "used_in": ["m4"]
+    },
+    {
+      "id": "farro",
+      "name": "Cooked Farro",
+      "type": "grain",
+      "yield": "3 cups cooked",
+      "used_in": ["m3", "m4"]
+    }
+  ],
+  "ingredient_consolidation": {
+    "primary_herb": "parsley (used in all 4 meals)",
+    "workhorse_vegetable": "lacinato kale (used in meals 1, 2, 3)",
+    "shared_grain": "farro (used in meals 3, 4)",
+    "multi_use_sauce": "lemon-tahini dressing (used in meals 1, 2, 3)",
+    "shared_aromatics": ["garlic (all 4 meals)", "lemon (all 4 meals)", "shallots (meals 1, 4)"]
+  },
+  "grocery": {
+    "produce": [
+      {"item": "Lacinato Kale", "quantity": "2 bunches (~16 oz / 454 g)", "meals": ["m1", "m2", "m3"]},
+      {"item": "Cauliflower", "quantity": "1 large head (~2 lbs / 900 g)", "meals": ["m2", "m4"]},
+      {"item": "Lemon", "quantity": "5", "meals": ["m1", "m2", "m3", "m4"]},
+      {"item": "Garlic", "quantity": "1 head (~12 cloves)", "meals": ["m1", "m2", "m3", "m4"]},
+      {"item": "Shallots", "quantity": "4 medium", "meals": ["m1", "m4"]},
+      {"item": "Fresh Parsley", "quantity": "2 bunches", "meals": ["m1", "m2", "m3", "m4"]},
+      {"item": "Fresh Mint", "quantity": "1 small bunch", "meals": ["m4"]},
+      {"item": "Cherry Tomatoes", "quantity": "1 pint (10 oz / 283 g)", "meals": ["m3"]}
+    ],
+    "proteins": [
+      {"item": "Cod Fillets", "quantity": "2 (6 oz / 170 g each)", "meals": ["m1"]},
+      {"item": "Bone-In Skin-On Chicken Thighs", "quantity": "4 (~1.5 lb / 680 g)", "meals": ["m2"]},
+      {"item": "Large Shrimp", "quantity": "¾ lb / 340 g, peeled & deveined", "meals": ["m3"]},
+      {"item": "Ground Lamb", "quantity": "¾ lb / 340 g", "meals": ["m4"]}
+    ],
+    "dairy_eggs": [
+      {"item": "Egg", "quantity": "1", "meals": ["m4"]}
+    ],
+    "shelf_stable": [
+      {"item": "Farro", "quantity": "1 cup / 200 g dry", "meals": ["m3", "m4"]},
+      {"item": "Tahini", "quantity": "½ cup / 120 g", "meals": ["m1", "m2", "m3"]},
+      {"item": "Za'atar", "quantity": "2 Tbsp", "meals": ["m2"]},
+      {"item": "Red Wine Vinegar", "quantity": "2 Tbsp", "meals": ["m4"]},
+      {"item": "Panko Breadcrumbs", "quantity": "2 Tbsp", "meals": ["m4"]}
+    ]
+  }
+}

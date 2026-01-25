@@ -1,0 +1,103 @@
+{
+  "week_of": "2026-01-27",
+  "generated_at": "2026-01-24T14:00:00Z",
+  "servings": 2,
+  "leftovers": false,
+  "theme": "Winter Brightness",
+  "difficulty": "normal",
+  "meals": [
+    {
+      "id": "m1",
+      "name": "Miso-Glazed Cod",
+      "subtitle": "with Roasted Broccolini & Sesame Rice",
+      "protein": "cod",
+      "protein_category": "seafood",
+      "cuisine": "asian",
+      "components": ["citrus-ginger-vinaigrette", "sesame-rice"],
+      "key_ingredients": ["cod fillets", "white miso", "broccolini", "rice", "sesame"],
+      "prep_time_minutes": 10,
+      "cook_time_minutes": 20
+    },
+    {
+      "id": "m2",
+      "name": "Crispy Gnocchi with Brussels Sprouts",
+      "subtitle": "with Brown Butter, Sage & Fried Egg",
+      "protein": "eggs",
+      "protein_category": "vegetarian",
+      "cuisine": "italian",
+      "components": ["gremolata"],
+      "key_ingredients": ["potato gnocchi", "Brussels sprouts", "butter", "sage", "parmesan"],
+      "prep_time_minutes": 5,
+      "cook_time_minutes": 20
+    },
+    {
+      "id": "m3",
+      "name": "Citrus-Fennel Braised Chicken",
+      "subtitle": "with Blood Orange & Castelvetrano Olives",
+      "protein": "chicken thighs",
+      "protein_category": "poultry",
+      "cuisine": "mediterranean",
+      "components": ["citrus-ginger-vinaigrette", "gremolata"],
+      "key_ingredients": ["chicken thighs", "fennel", "blood orange", "olives", "white wine"],
+      "prep_time_minutes": 15,
+      "cook_time_minutes": 45
+    }
+  ],
+  "components": [
+    {
+      "id": "citrus-ginger-vinaigrette",
+      "name": "Citrus-Ginger Vinaigrette",
+      "type": "dressing",
+      "yield": "1/2 cup",
+      "used_in": ["m1", "m3"]
+    },
+    {
+      "id": "gremolata",
+      "name": "Lemon-Parsley Gremolata",
+      "type": "topping",
+      "yield": "1/4 cup",
+      "used_in": ["m2", "m3"]
+    },
+    {
+      "id": "sesame-rice",
+      "name": "Sesame Rice",
+      "type": "grain",
+      "yield": "2 cups cooked",
+      "used_in": ["m1"]
+    }
+  ],
+  "grocery": {
+    "produce": [
+      {"item": "Broccolini", "quantity": "1 bunch (6-8 oz / 170-227 g)", "meals": ["m1"]},
+      {"item": "Brussels Sprouts", "quantity": "8 oz / 227 g", "meals": ["m2"]},
+      {"item": "Fennel", "quantity": "1 large bulb (~12 oz / 340 g)", "meals": ["m3"]},
+      {"item": "Blood Orange", "quantity": "2", "meals": ["m3"]},
+      {"item": "Lemon", "quantity": "3", "meals": ["m1", "m2", "m3"]},
+      {"item": "Fresh Ginger", "quantity": "1 inch piece (~15 g)", "meals": ["m1", "m3"]},
+      {"item": "Garlic", "quantity": "8 cloves", "meals": ["m1", "m2", "m3"]},
+      {"item": "Shallot", "quantity": "1 medium", "meals": ["m1", "m3"]},
+      {"item": "Fresh Parsley", "quantity": "1 bunch", "meals": ["m2", "m3"]},
+      {"item": "Fresh Sage", "quantity": "8-10 leaves", "meals": ["m2"]},
+      {"item": "Scallions", "quantity": "2", "meals": ["m1"]}
+    ],
+    "proteins": [
+      {"item": "Cod Fillets", "quantity": "2 (5-6 oz / 142-170 g each)", "meals": ["m1"]},
+      {"item": "Bone-In Skin-On Chicken Thighs", "quantity": "4 (about 1.5 lb / 680 g)", "meals": ["m3"]}
+    ],
+    "dairy_eggs": [
+      {"item": "Unsalted Butter", "quantity": "4 Tbsp / 57 g", "meals": ["m2"]},
+      {"item": "Eggs", "quantity": "2", "meals": ["m2"]}
+    ],
+    "cheese": [
+      {"item": "Parmesan", "quantity": "1 oz / 28 g", "meals": ["m2"]}
+    ],
+    "shelf_stable": [
+      {"item": "White Miso Paste", "quantity": "3 Tbsp / 54 g", "meals": ["m1"]},
+      {"item": "Long Grain Rice", "quantity": "3/4 cup / 150 g", "meals": ["m1"]},
+      {"item": "Potato Gnocchi", "quantity": "1 lb / 454 g", "meals": ["m2"]},
+      {"item": "Castelvetrano Olives", "quantity": "1/2 cup / 75 g", "meals": ["m3"]},
+      {"item": "Chicken Stock", "quantity": "1/2 cup / 120 ml", "meals": ["m3"]},
+      {"item": "Sesame Seeds", "quantity": "2 Tbsp", "meals": ["m1"]}
+    ]
+  }
+}

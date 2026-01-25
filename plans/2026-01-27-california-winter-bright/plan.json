@@ -1,0 +1,139 @@
+{
+  "week_of": "2026-01-27",
+  "folder_name": "2026-01-27-california-winter-bright",
+  "generated_at": "2026-01-24T10:00:00Z",
+  "servings": 2,
+  "leftovers": false,
+  "theme": "California Winter Bright",
+  "difficulty": "normal",
+  "meals": [
+    {
+      "id": "m1",
+      "name": "Gochujang-Glazed Salmon",
+      "subtitle": "with Sesame Rice & Roasted Broccolini",
+      "protein": "salmon",
+      "protein_category": "seafood",
+      "cuisine": "korean-inspired",
+      "components": ["gochujang-glaze", "sesame-rice"],
+      "key_ingredients": ["salmon fillets", "gochujang", "broccolini", "sesame oil", "rice"],
+      "prep_time_minutes": 10,
+      "cook_time_minutes": 20
+    },
+    {
+      "id": "m2",
+      "name": "Brown Butter Gnocchi with Brussels Sprouts",
+      "subtitle": "with Crispy Sage & Fried Egg",
+      "protein": "eggs",
+      "protein_category": "vegetarian",
+      "cuisine": "italian",
+      "components": [],
+      "key_ingredients": ["potato gnocchi", "brussels sprouts", "butter", "sage", "eggs", "parmesan"],
+      "prep_time_minutes": 5,
+      "cook_time_minutes": 20
+    },
+    {
+      "id": "m3",
+      "name": "Spiced Lamb Meatballs",
+      "subtitle": "with Tahini-Yogurt Sauce & Crispy Kale",
+      "protein": "lamb",
+      "protein_category": "red meat",
+      "cuisine": "mediterranean",
+      "components": ["tahini-yogurt-sauce", "farro"],
+      "key_ingredients": ["ground lamb", "tahini", "greek yogurt", "lacinato kale", "farro", "cumin", "coriander"],
+      "prep_time_minutes": 15,
+      "cook_time_minutes": 20
+    },
+    {
+      "id": "m4",
+      "name": "Harissa Chicken Thighs",
+      "subtitle": "with Roasted Fennel & Blood Orange-Olive Relish",
+      "protein": "chicken thighs",
+      "protein_category": "poultry",
+      "cuisine": "north african",
+      "components": ["harissa-marinade", "blood-orange-olive-relish"],
+      "key_ingredients": ["chicken thighs", "harissa", "fennel", "blood orange", "castelvetrano olives"],
+      "prep_time_minutes": 10,
+      "cook_time_minutes": 35
+    }
+  ],
+  "components": [
+    {
+      "id": "gochujang-glaze",
+      "name": "Gochujang Glaze",
+      "type": "glaze",
+      "yield": "1/4 cup",
+      "used_in": ["m1"]
+    },
+    {
+      "id": "sesame-rice",
+      "name": "Sesame Rice",
+      "type": "grain",
+      "yield": "2 cups cooked",
+      "used_in": ["m1"]
+    },
+    {
+      "id": "tahini-yogurt-sauce",
+      "name": "Tahini-Yogurt Sauce",
+      "type": "sauce",
+      "yield": "3/4 cup",
+      "used_in": ["m3"]
+    },
+    {
+      "id": "farro",
+      "name": "Cooked Farro",
+      "type": "grain",
+      "yield": "1.5 cups cooked",
+      "used_in": ["m3"]
+    },
+    {
+      "id": "harissa-marinade",
+      "name": "Harissa Marinade",
+      "type": "marinade",
+      "yield": "1/4 cup",
+      "used_in": ["m4"]
+    },
+    {
+      "id": "blood-orange-olive-relish",
+      "name": "Blood Orange-Olive Relish",
+      "type": "relish",
+      "yield": "1/2 cup",
+      "used_in": ["m4"]
+    }
+  ],
+  "grocery": {
+    "produce": [
+      {"item": "Broccolini", "quantity": "1 bunch (6 oz / 170 g)", "meals": ["m1"]},
+      {"item": "Brussels Sprouts", "quantity": "8 oz / 227 g", "meals": ["m2"]},
+      {"item": "Lacinato Kale", "quantity": "1 bunch (~8 oz / 227 g)", "meals": ["m3"]},
+      {"item": "Fennel", "quantity": "2 medium bulbs", "meals": ["m4"]},
+      {"item": "Blood Oranges", "quantity": "3", "meals": ["m4"]},
+      {"item": "Lemon", "quantity": "2", "meals": ["m1", "m3"]},
+      {"item": "Garlic", "quantity": "1 head (10 cloves)", "meals": ["m1", "m2", "m3", "m4"]},
+      {"item": "Fresh Ginger", "quantity": "1\" piece", "meals": ["m1"]},
+      {"item": "Fresh Sage", "quantity": "1 small bunch", "meals": ["m2"]},
+      {"item": "Fresh Mint", "quantity": "1 small bunch", "meals": ["m3"]},
+      {"item": "Fresh Parsley", "quantity": "1 bunch", "meals": ["m3", "m4"]}
+    ],
+    "proteins": [
+      {"item": "Salmon Fillets", "quantity": "2 (6 oz / 170 g each)", "meals": ["m1"]},
+      {"item": "Ground Lamb", "quantity": "1 lb / 454 g", "meals": ["m3"]},
+      {"item": "Bone-In Skin-On Chicken Thighs", "quantity": "4 (~1.5 lb / 680 g)", "meals": ["m4"]}
+    ],
+    "dairy_eggs": [
+      {"item": "Eggs", "quantity": "3", "meals": ["m2", "m3"]},
+      {"item": "Greek Yogurt", "quantity": "1/2 cup / 120 g", "meals": ["m3"]},
+      {"item": "Parmesan", "quantity": "2 oz / 57 g", "meals": ["m2"]},
+      {"item": "Unsalted Butter", "quantity": "4 Tbsp / 57 g", "meals": ["m2"]}
+    ],
+    "shelf_stable": [
+      {"item": "Potato Gnocchi", "quantity": "1 lb / 454 g", "meals": ["m2"]},
+      {"item": "Farro", "quantity": "1/2 cup / 100 g", "meals": ["m3"]},
+      {"item": "Long Grain White Rice", "quantity": "3/4 cup / 150 g", "meals": ["m1"]},
+      {"item": "Gochujang", "quantity": "2 Tbsp", "meals": ["m1"]},
+      {"item": "Harissa Paste", "quantity": "2 Tbsp", "meals": ["m4"]},
+      {"item": "Tahini", "quantity": "3 Tbsp", "meals": ["m3"]},
+      {"item": "Castelvetrano Olives", "quantity": "1/2 cup / 75 g", "meals": ["m4"]},
+      {"item": "Panko Breadcrumbs", "quantity": "1/4 cup / 15 g", "meals": ["m3"]}
+    ]
+  }
+}
