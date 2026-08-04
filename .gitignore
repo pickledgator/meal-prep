@@ -1,5 +1,15 @@
 # Environment variables (contains secrets)
 .env
+web/.env.local
+
+# Node
+node_modules/
+dist/
+*.tsbuildinfo
+
+# Local database + generator payloads
+local.db*
+payloads/
 
 # Python
 __pycache__/
