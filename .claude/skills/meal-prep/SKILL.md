@@ -1,13 +1,14 @@
 ---
 name: meal-prep
-description: Generate a weekly dinner plan with prep guide, grocery list, and recipes. Asks guided questions then creates files in the project plans/ folder.
+description: Generate a weekly dinner plan with prep guide, grocery list, and recipes. Asks guided questions, composes a structured plan payload, and ingests it into the meal-prep database.
 argument-hint: "[--meals N] [--servings N] [--theme CUISINE] [--proteins LIST] [--must-use INGREDIENTS] [--difficulty LEVEL] [--leftovers] [--allow-repeats]"
 allowed-tools:
   - Read
   - Write
   - AskUserQuestion
   - Bash(date *)
-  - Bash(mkdir *)
+  - Bash(pnpm ingest*)
+  - Bash(pnpm history*)
   - WebSearch
   - WebFetch
 ---
@@ -53,11 +54,13 @@ Check if command-line arguments were provided. If so, parse them:
 
 **Never repeat themes or recipes from previously generated weeks**, unless the user explicitly requests a repeat (via `--allow-repeats` or by asking, e.g., "make that lemongrass chicken week again").
 
-Before choosing a theme or designing meals:
+Before choosing a theme or designing meals, query the plan database:
 
-1. List the existing plan folders: `ls plans/` — folder names reveal past themes
-2. List past dishes: `ls plans/*/recipes/` — filenames reveal past recipes
-3. For recent or seasonally-overlapping weeks, skim their `menu.md` to catch marquee sauces and flavor concepts
+```bash
+pnpm history --json
+```
+
+One call covers all three repeat classes: every past week's theme, each meal's name/protein/cuisine plus its menu blurb (the flavor-concept skim), and the marquee sauce-family components. (The `plans/` markdown folders are a frozen pre-database archive — do not consult or write them.)
 
 **What counts as a repeat:**
 
@@ -387,6 +390,8 @@ Put a cleaning/sanitizing task immediately after raw meat or seafood handling, b
 
 **Canonical Prep-List Style:**
 
+_These composition rules are unchanged, but they now land in structured payload fields (`prepSections` → tasks → allocations) instead of markdown lines — see `reference/output-format.md` for the exact field mapping. Read "checkbox/child line" below as "task/allocation entry."_
+
 - **Use one ingredient structure everywhere**: every ingredient gets a bold parent checkbox containing only its name and total quantity. Put every cut/allocation on an indented child line—even when the ingredient has only one use. Do not mix this with inline `Ingredient (quantity; prep instruction)` formatting.
 - **Use compact arrow notation**: child lines follow `quantity → prep → destination`. Keep the ingredient name at the start of the parent line so the UI can infer the correct icon.
 - **Use 🫙 instead of prose for Sunday consumption**: `🫙` means the allocation is consumed by a component prepared on Sunday. Write `5 → roughly chop → Beef Shank Seco 🫙`, never `5 → roughly chop; used today in Beef Shank Seco 🫙`, `for use in`, or `keep out for`.
@@ -483,45 +488,40 @@ Each recipe should include thoughtful plating instructions that create visual ap
 
 ## Output Generation
 
-### Determine Week Folder
+### Determine the Plan Slug
 
 Calculate the Monday of the current or next week, combined with the theme in kebab-case:
 
 ```
-plans/YYYY-MM-DD-theme-name/
+YYYY-MM-DD-theme-name
 ```
 
 **Examples:**
-- `plans/2026-01-27-winter-brightness/`
-- `plans/2026-01-27-mediterranean/`
-- `plans/2026-02-03-asian-comfort/`
+- `2026-01-27-winter-brightness`
+- `2026-02-03-asian-comfort`
 
-This allows multiple meal plans to be generated for the same week with different themes.
+This allows multiple meal plans for the same week with different themes. The slug is the plan's identity: re-ingesting the same slug replaces that plan.
 
-Create the folder structure:
+### Compose the Payload
 
-```
-plans/YYYY-MM-DD-theme-name/
-├── plan.json
-├── menu.md
-├── grocery-list.md
-├── essentials.md
-├── prep-list.md
-├── components/
-│   └── (sauce/component files)
-└── recipes/
-    └── (m1-recipe-name.md, m2-..., etc.)
+The entire plan — menu, meals with full recipes, component cards, grocery list, essentials, time savers, and the Sunday prep tree — is ONE structured JSON document validated by `shared/src/meal-plan.ts` (`planPayloadSchema`).
+
+Read the payload specification from: `.claude/skills/meal-prep/reference/output-format.md`
+
+Write the payload to `payloads/<slug>.json` (gitignored), then validate and ingest:
+
+```bash
+pnpm ingest payloads/<slug>.json --dry-run   # zod validation + counts, writes nothing
+pnpm ingest payloads/<slug>.json             # ingest into the database
 ```
 
-### File Specifications
-
-Read the detailed output format from: `.claude/skills/meal-prep/reference/output-format.md`
-
-Follow those specifications exactly for each output file.
+Fix any validation errors the dry run reports before the real ingest. The dry run enforces the cross-reference rules mechanically (component slugs resolve, meal numbers exist, no orphan components, one-source-of-truth on prep tasks) — treat its errors as authoring bugs, not schema noise.
 
 ## Cross-Checks Before Finalizing
 
-Before writing files, verify:
+_The payload schema now machine-enforces the referential parts of these checks (component links resolve, meal numbers exist, no orphan components, componentSlug-XOR-body on prep tasks) — the `--dry-run` ingest surfaces violations. The content-quality checks below remain yours to verify._
+
+Before composing the final payload, verify:
 
 1. **No Ingredient Waste**: Every purchased ingredient appears in at least one recipe
 2. **Protein Variety**: No repeated proteins (unless user-specified or intentionally cascaded)
@@ -618,21 +618,22 @@ Always validate these high-risk ingredients:
 
 1. Parse arguments or prompt user for preferences
 2. Detect season and read seasonal file
-3. Scan `plans/` for past themes and recipes to avoid repeats (unless repeats were requested) — see "Plan History — No Repeats"
+3. Run `pnpm history --json` for past themes, recipes, and marquee sauces to avoid repeats (unless repeats were requested) — see "Plan History — No Repeats"
 4. Search the web for recipe inspiration based on theme, proteins, and seasonal ingredients
 5. Design meal concepts that satisfy all rules, adapting found recipes as needed
 6. Create detailed recipes with prep breakdown
 7. Generate grocery list with meal references
 8. Create Sunday prep checklist
-9. Write all files to the week's folder
+9. Compose the plan payload JSON at `payloads/<slug>.json`
 10. **Run Quantity Validation Protocol** — Perform explicit arithmetic on key ingredients (garlic, citrus, herbs, split vegetables, grains). Fix any mismatches found.
-11. Report completion with folder path and summary
+11. Validate with `pnpm ingest payloads/<slug>.json --dry-run`, fix any errors, then ingest for real
+12. Report completion with the plan URL and summary
 
 ## Output Summary
 
-After generating all files and completing validation, provide a brief summary:
+After ingesting the plan and completing validation, provide a brief summary:
 
-- Week folder created
+- Plan slug ingested (link it: `https://meal-prep.fly.dev/plans/<slug>`, or `http://localhost:5173/plans/<slug>` in dev)
 - Number of meals planned
 - Theme/cuisine direction
 - Highlight 1-2 interesting dishes
