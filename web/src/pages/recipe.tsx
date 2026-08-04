@@ -51,20 +51,27 @@ export function RecipePage() {
         <div className="slab-sunk mb-10 px-5 py-4">
           <p className="label mb-3 text-ink">From your Sunday prep</p>
           <ul className="space-y-1.5 text-[0.9375rem] text-ink-muted">
-            {meal.preppedIngredients.map((item, index) => (
-              <li key={index}>
-                {item.componentSlug ? (
-                  <Link
-                    href={`/plans/${slug}/components/${item.componentSlug}`}
-                    className="font-medium text-primary underline decoration-primary/35 decoration-1 underline-offset-[3px] transition-colors hover:decoration-primary"
-                  >
-                    <InlineMarkdown text={item.text} />
-                  </Link>
-                ) : (
-                  <InlineMarkdown text={item.text} slug={slug} />
-                )}
-              </li>
-            ))}
+            {meal.preppedIngredients.map((item, index) => {
+              // The link itself carries the component reference — drop a
+              // trailing "— `components/x.md`" so the raw path never shows.
+              const display = item.componentSlug
+                ? item.text.replace(/\s*[—–-]?\s*`components\/[^`]+`\s*$/, "")
+                : item.text;
+              return (
+                <li key={index}>
+                  {item.componentSlug ? (
+                    <Link
+                      href={`/plans/${slug}/components/${item.componentSlug}`}
+                      className="font-medium text-primary underline decoration-primary/35 decoration-1 underline-offset-[3px] transition-colors hover:decoration-primary"
+                    >
+                      <InlineMarkdown text={display} />
+                    </Link>
+                  ) : (
+                    <InlineMarkdown text={display} slug={slug} />
+                  )}
+                </li>
+              );
+            })}
           </ul>
         </div>
       )}

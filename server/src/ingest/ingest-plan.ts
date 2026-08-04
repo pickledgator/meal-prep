@@ -63,9 +63,10 @@ export async function ingestPlan(db: Db, raw: unknown): Promise<IngestResult> {
 
     if (payload.components.length > 0) {
       await tx.insert(t.components).values(
-        payload.components.map((c) => ({
+        payload.components.map((c, position) => ({
           id: componentIdBySlug.get(c.slug)!,
           planId,
+          position,
           slug: c.slug,
           name: c.name,
           type: c.type,

@@ -3,6 +3,7 @@
 //
 //   pnpm ingest <payload.json> [--dry-run]
 import { readFileSync } from "node:fs";
+import { resolve } from "node:path";
 import { planPayloadSchema } from "shared";
 import { db } from "../db/client.js";
 import { env } from "../env.js";
@@ -10,7 +11,10 @@ import { ingestPlan } from "../ingest/ingest-plan.js";
 
 const args = process.argv.slice(2);
 const dryRun = args.includes("--dry-run");
-const file = args.find((a) => !a.startsWith("--"));
+const fileArg = args.find((a) => !a.startsWith("--"));
+// pnpm runs this with cwd=server/; resolve user paths from where they typed
+// the command (INIT_CWD) so `pnpm ingest payloads/x.json` works at the root.
+const file = fileArg === undefined ? undefined : resolve(process.env.INIT_CWD ?? process.cwd(), fileArg);
 
 if (!file) {
   console.error("usage: pnpm ingest <payload.json> [--dry-run]");

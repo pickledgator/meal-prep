@@ -59,6 +59,7 @@ export const components = sqliteTable(
     planId: text("plan_id")
       .notNull()
       .references(() => plans.id, { onDelete: "cascade" }),
+    position: integer("position").notNull().default(0), // payload order — createdAt ties within one ingest
     slug: text("slug").notNull(), // "garlic-ginger-soy-sauce" (per-plan unique)
     name: text("name").notNull(), // history: marquee-sauce no-repeats
     type: text("type").notNull(), // OPEN text (20+ values in the wild) — deliberately not an enum

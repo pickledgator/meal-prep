@@ -76,7 +76,7 @@ export async function getPlanDetail(db: Db, slug: string): Promise<PlanDetail | 
     componentSteps,
   ] = await Promise.all([
     db.select().from(t.meals).where(eq(t.meals.planId, plan.id)).orderBy(asc(t.meals.mealNumber)),
-    db.select().from(t.components).where(eq(t.components.planId, plan.id)).orderBy(asc(t.components.createdAt)),
+    db.select().from(t.components).where(eq(t.components.planId, plan.id)).orderBy(asc(t.components.position)),
     db
       .select({ mealId: t.mealComponents.mealId, componentId: t.mealComponents.componentId, position: t.mealComponents.position })
       .from(t.mealComponents)

@@ -94,9 +94,9 @@ export function splitTopLevel(text: string, sep: string): string[] {
     const ch = text[i];
     if (ch === "(" || ch === "[") depth++;
     else if (ch === ")" || ch === "]") depth = Math.max(0, depth - 1);
-    else if (ch === '"' || ch === "“") inQuote = true;
+    else if (ch === '"') inQuote = !inQuote;
+    else if (ch === "“") inQuote = true;
     else if (ch === "”") inQuote = false;
-    else if (ch === '"' && inQuote) inQuote = false;
     if (ch === sep && depth === 0 && !inQuote) {
       parts.push(current);
       current = "";
@@ -127,6 +127,28 @@ export function splitParenthetical(text: string): { before: string; inside?: str
     }
   }
   return { before: text.trim(), after: "" }; // unbalanced — treat as plain text
+}
+
+// Same, but for the LAST balanced "(...)" group — grocery quantities live in
+// the final parenthetical ("4 (6 oz) Wild Salmon Fillets (1½ lb total)").
+export function splitLastParenthetical(text: string): { before: string; inside?: string; after: string } {
+  const close = text.lastIndexOf(")");
+  if (close < 0) return { before: text.trim(), after: "" };
+  let depth = 0;
+  for (let i = close; i >= 0; i--) {
+    if (text[i] === ")") depth++;
+    else if (text[i] === "(") {
+      depth--;
+      if (depth === 0) {
+        return {
+          before: text.slice(0, i).trim(),
+          inside: text.slice(i + 1, close).trim(),
+          after: text.slice(close + 1).trim(),
+        };
+      }
+    }
+  }
+  return { before: text.trim(), after: "" };
 }
 
 // Best-effort grams from a quantity string: last "NNN g" / "N.N kg" mention.
