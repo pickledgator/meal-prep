@@ -1,0 +1,602 @@
+/* Self-hosted fonts (fontsource) — the app sits behind a password wall, so no
+   third-party font hosts, and print always has the real faces. Fraunces must be
+   the full-axes build: the type system leans on its SOFT and WONK axes. */
+@import "@fontsource-variable/fraunces/full.css";
+@import "@fontsource-variable/fraunces/full-italic.css";
+@import "@fontsource-variable/instrument-sans";
+@import "@fontsource/ibm-plex-mono/400.css";
+@import "@fontsource/ibm-plex-mono/500.css";
+@import "@fontsource/ibm-plex-mono/600.css";
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/* ==========================================================================
+   Kitchen Press — a letterpress system for reading recipes on a counter.
+   Heavy wood-type serif, thick rules, solid ink blocks, warm paper.
+   One accent: kitchen-garden olive.
+   ========================================================================== */
+
+@theme inline {
+  /* Typefaces */
+  --font-display: var(--font-fraunces);
+  --font-sans: var(--font-instrument-sans);
+  --font-mono: var(--font-plex-mono);
+
+  /* Editorial tokens */
+  --color-paper: var(--paper);
+  --color-paper-raised: var(--paper-raised);
+  --color-paper-sunk: var(--paper-sunk);
+  --color-ink: var(--ink);
+  --color-ink-muted: var(--ink-muted);
+  --color-ink-faint: var(--ink-faint);
+  --color-rule: var(--rule);
+  --color-rule-strong: var(--rule-strong);
+  --color-olive-bright: var(--olive-bright);
+
+  /* Category swatches — small solid marks, never fills */
+  --color-cat-seafood: var(--cat-seafood);
+  --color-cat-poultry: var(--cat-poultry);
+  --color-cat-meat: var(--cat-meat);
+  --color-cat-veg: var(--cat-veg);
+
+  /* shadcn surface contract, remapped onto the paper palette */
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  /* Radii — modest. Letterpress does not do pills. */
+  --radius-sm: 0.125rem;
+  --radius-md: 0.1875rem;
+  --radius-lg: 0.25rem;
+  --radius-xl: 0.375rem;
+  --radius-2xl: 0.5rem;
+}
+
+:root {
+  --radius: 0.25rem;
+
+  /* Family names registered by the fontsource imports above (was next/font). */
+  --font-fraunces: "Fraunces Variable";
+  --font-instrument-sans: "Instrument Sans Variable";
+  --font-plex-mono: "IBM Plex Mono";
+
+  /* Typeface stacks must live here, not only in `@theme inline` — inline theme
+     values get substituted into utilities and are never emitted as custom
+     properties, so hand-written classes like `.display` would resolve
+     `var(--font-display)` to nothing and silently inherit the body font. */
+  --font-display: var(--font-fraunces), ui-serif, Georgia, serif;
+  --font-sans: var(--font-instrument-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-plex-mono), ui-monospace, monospace;
+
+  /* Paper — warm, slightly toothy */
+  --paper: oklch(0.971 0.012 86);
+  --paper-raised: oklch(0.99 0.007 88);
+  --paper-sunk: oklch(0.936 0.017 84);
+
+  /* Ink — dense and warm, never pure black */
+  --ink: oklch(0.207 0.016 56);
+  --ink-muted: oklch(0.436 0.019 60);
+  --ink-faint: oklch(0.598 0.018 66);
+
+  /* Rules — visible, structural */
+  --rule: oklch(0.842 0.014 80);
+  --rule-strong: oklch(0.628 0.018 74);
+
+  /* The one accent */
+  --olive: oklch(0.432 0.089 129);
+  --olive-soft: oklch(0.903 0.046 122);
+  /* The accent as it reads on an ink field (masthead, ink blocks) */
+  --olive-bright: oklch(0.778 0.106 126);
+
+  /* Category marks */
+  --cat-seafood: oklch(0.492 0.072 232);
+  --cat-poultry: oklch(0.588 0.102 68);
+  --cat-meat: oklch(0.472 0.112 28);
+  --cat-veg: oklch(0.486 0.09 138);
+
+  /* Tinted shadow: carries the paper's hue, never generic black */
+  --shadow-color: 58 14% 26%;
+
+  /* shadcn contract */
+  --background: var(--paper);
+  --foreground: var(--ink);
+  --card: var(--paper-raised);
+  --card-foreground: var(--ink);
+  --popover: var(--paper-raised);
+  --popover-foreground: var(--ink);
+  --primary: var(--olive);
+  --primary-foreground: oklch(0.978 0.012 88);
+  --secondary: var(--paper-sunk);
+  --secondary-foreground: var(--ink);
+  --muted: var(--paper-sunk);
+  --muted-foreground: var(--ink-muted);
+  --accent: var(--olive-soft);
+  --accent-foreground: oklch(0.29 0.062 130);
+  --destructive: oklch(0.472 0.164 28);
+  --border: var(--rule);
+  --input: var(--rule-strong);
+  --ring: var(--olive);
+}
+
+.dark {
+  --paper: oklch(0.184 0.012 62);
+  --paper-raised: oklch(0.232 0.013 62);
+  --paper-sunk: oklch(0.152 0.011 62);
+
+  --ink: oklch(0.948 0.011 86);
+  --ink-muted: oklch(0.752 0.014 76);
+  --ink-faint: oklch(0.588 0.014 70);
+
+  --rule: oklch(0.342 0.013 66);
+  --rule-strong: oklch(0.492 0.016 70);
+
+  --olive: oklch(0.762 0.098 126);
+  --olive-soft: oklch(0.296 0.048 128);
+
+  --cat-seafood: oklch(0.712 0.078 228);
+  --cat-poultry: oklch(0.792 0.098 74);
+  --cat-meat: oklch(0.702 0.112 30);
+  --cat-veg: oklch(0.732 0.092 136);
+
+  --shadow-color: 58 22% 3%;
+
+  --primary: var(--olive);
+  --primary-foreground: oklch(0.17 0.022 128);
+  --accent-foreground: oklch(0.93 0.032 126);
+  --destructive: oklch(0.688 0.158 26);
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+    font-size: 1.0625rem;
+    font-weight: 450;
+    line-height: 1.6;
+    text-rendering: optimizeLegibility;
+  }
+
+  /* Paper grain — enough tooth to kill the digital flatness */
+  body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: 90;
+    pointer-events: none;
+    opacity: 0.055;
+    mix-blend-mode: multiply;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23g)'/%3E%3C/svg%3E");
+  }
+
+  .dark body::after {
+    mix-blend-mode: screen;
+    opacity: 0.06;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  :focus-visible {
+    outline: 2.5px solid var(--olive);
+    outline-offset: 2px;
+    border-radius: 1px;
+  }
+
+  :where(h1, h2, h3) {
+    scroll-margin-top: 8rem;
+  }
+
+  ::selection {
+    background: var(--olive-soft);
+    color: var(--accent-foreground);
+  }
+}
+
+/* ==========================================================================
+   Type
+   ========================================================================== */
+
+/* Wood type: heavy, tight, a little wonky */
+.display {
+  font-family: var(--font-display), ui-serif, Georgia, serif;
+  font-optical-sizing: auto;
+  font-variation-settings: "SOFT" 18, "WONK" 1;
+  font-weight: 700;
+  letter-spacing: -0.028em;
+  line-height: 1.02;
+}
+
+/* The biggest headlines — near-black weight, set tight */
+.display-heavy {
+  font-family: var(--font-display), ui-serif, Georgia, serif;
+  font-optical-sizing: auto;
+  font-variation-settings: "SOFT" 14, "WONK" 1;
+  font-weight: 860;
+  letter-spacing: -0.036em;
+  line-height: 0.94;
+}
+
+/* Sub-heads and dish names inside lists */
+.display-quiet {
+  font-family: var(--font-display), ui-serif, Georgia, serif;
+  font-variation-settings: "SOFT" 30, "WONK" 1;
+  font-weight: 600;
+  letter-spacing: -0.014em;
+  line-height: 1.2;
+}
+
+/* Small mono label — kickers, column heads, nav */
+.label {
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 0.6875rem;
+  line-height: 1.2;
+  letter-spacing: 0.115em;
+  text-transform: uppercase;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+
+.label-lg {
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 0.8125rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Opt a form label out of the mono/caps treatment when it reads as a sentence.
+   Declared after `.label` so it wins at equal specificity. */
+.no-caps {
+  font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+/* Data — quantities, times, counts. Always tabular. */
+.data {
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-variant-numeric: tabular-nums;
+  font-size: 0.8125rem;
+  font-weight: 450;
+  letter-spacing: -0.005em;
+}
+
+.tnum {
+  font-variant-numeric: tabular-nums;
+}
+
+/* ==========================================================================
+   Structure — thick rules do the framing, not borders on boxes
+   ========================================================================== */
+
+/* Heavy top rule with a hairline beneath it: a printed section break */
+.rule-heavy {
+  border-top: 3px solid var(--ink);
+}
+
+.rule-double {
+  border-top: 3px solid var(--ink);
+  box-shadow: 0 3px 0 -2px var(--rule);
+}
+
+/* Solid ink block — meal numbers, counters, marks that need mass */
+.num-block {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--ink);
+  color: var(--paper);
+  font-family: var(--font-display), ui-serif, Georgia, serif;
+  font-variation-settings: "SOFT" 18, "WONK" 1;
+  font-weight: 800;
+  line-height: 1;
+  border-radius: 2px;
+  transition: background-color 180ms ease;
+}
+
+.index-row:hover .num-block {
+  background: var(--olive);
+}
+
+/* A slab: filled surface with a weighted edge. Replaces thin bordered cards. */
+.slab {
+  background: var(--paper-raised);
+  border: 1.5px solid color-mix(in oklab, var(--ink) 16%, transparent);
+  box-shadow:
+    0 1px 0 hsl(var(--shadow-color) / 0.06),
+    0 10px 24px -18px hsl(var(--shadow-color) / 0.5);
+}
+
+.slab-sunk {
+  background: var(--paper-sunk);
+  border: 1.5px solid color-mix(in oklab, var(--ink) 12%, transparent);
+}
+
+/* Index rows — separated by space and a hover bar, not by rules */
+.index-row {
+  position: relative;
+  transition: background-color 160ms ease;
+  border-radius: 2px;
+}
+
+.index-row::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: var(--olive);
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: transform 180ms ease;
+}
+
+.index-row:hover {
+  background: color-mix(in oklab, var(--olive) 7%, transparent);
+}
+
+.index-row:hover::before {
+  transform: scaleY(1);
+}
+
+/* Category mark — a solid bar, not a timid dot */
+.cat-dot {
+  display: inline-block;
+  width: 0.75rem;
+  height: 0.3125rem;
+  border-radius: 1px;
+  background: currentColor;
+  flex: none;
+}
+
+/* Measure — long-form text never runs wider than the eye can track */
+.measure {
+  max-width: 68ch;
+}
+
+.measure-tight {
+  max-width: 56ch;
+}
+
+/* Section break — a diamond in open space, no line across the page */
+.ornament {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.ornament span {
+  width: 5px;
+  height: 5px;
+  rotate: 45deg;
+  background: var(--ink);
+  opacity: 0.32;
+}
+
+/* ==========================================================================
+   Long-form recipe / list rendering
+   ========================================================================== */
+
+.editorial {
+  color: var(--ink);
+  font-size: 1.0625rem;
+  line-height: 1.68;
+}
+
+/* Hanging step numbers — solid, not decorative */
+.editorial ol.steps {
+  counter-reset: step;
+  list-style: none;
+}
+
+.editorial ol.steps > li {
+  counter-increment: step;
+  position: relative;
+  padding-left: 3rem;
+}
+
+.editorial ol.steps > li::before {
+  content: counter(step);
+  position: absolute;
+  left: 0;
+  top: 0.1em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.75rem;
+  height: 1.75rem;
+  background: var(--ink);
+  color: var(--paper);
+  border-radius: 2px;
+  font-family: var(--font-mono), monospace;
+  font-size: 0.75rem;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Bullets: small solid squares — mass without more horizontal lines */
+.editorial ul.bullets {
+  list-style: none;
+}
+
+.editorial ul.bullets > li {
+  position: relative;
+  padding-left: 1.125rem;
+}
+
+.editorial ul.bullets > li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.68em;
+  width: 0.375rem;
+  height: 0.375rem;
+  border-radius: 1px;
+  background: var(--ink);
+  opacity: 0.42;
+}
+
+/* An ingredient's emoji already marks the row — don't add a bullet too */
+.editorial ul.bullets > li.has-mark {
+  padding-left: 0;
+}
+
+.editorial ul.bullets > li.has-mark::before {
+  content: none;
+}
+
+/* Section tab — a printed label block. Replaces full-width section rules so
+   documents with many short sections (grocery lists) don't turn into stripes. */
+.section-tab {
+  display: inline-flex;
+  align-items: center;
+  background: var(--ink);
+  color: var(--paper);
+  padding: 0.4375rem 0.625rem 0.375rem;
+  border-radius: 2px;
+}
+
+/* Emoji ingredient marks sit in a fixed slot so text stays aligned */
+.ing-mark {
+  display: inline-flex;
+  width: 1.375rem;
+  margin-right: 0.4375rem;
+  justify-content: flex-start;
+  flex: none;
+  font-size: 1.05em;
+  line-height: 1;
+}
+
+/* Quantities set in the mono face so weights and volumes line up column-wise */
+.qty {
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-variant-numeric: tabular-nums;
+  font-size: 0.9em;
+  letter-spacing: -0.01em;
+  color: var(--ink-muted);
+}
+
+/* ==========================================================================
+   Container
+   ========================================================================== */
+
+.container {
+  width: 100%;
+  margin-inline: auto;
+  padding-inline: 1.25rem;
+  max-width: 1180px;
+}
+
+@media (min-width: 768px) {
+  .container {
+    padding-inline: 2rem;
+  }
+}
+
+/* ==========================================================================
+   Print — this gets read on a counter next to a hot pan
+   ========================================================================== */
+
+@media print {
+  @page {
+    margin: 14mm 16mm;
+  }
+
+  :root {
+    --paper: white;
+    --paper-raised: white;
+    --paper-sunk: white;
+    --ink: #14130d;
+    --ink-muted: #403e34;
+    --ink-faint: #646156;
+    --rule: #c6c3b6;
+    --rule-strong: #8f8c7e;
+    --olive: #3f4d24;
+  }
+
+  body::after,
+  [data-print="hide"] {
+    display: none !important;
+  }
+
+  body {
+    font-size: 11.5pt;
+  }
+
+  .measure,
+  .measure-tight {
+    max-width: none;
+  }
+
+  .slab,
+  .slab-sunk {
+    box-shadow: none;
+    border-color: #c6c3b6;
+  }
+
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  /* Keep a step, an ingredient, or a prep task from splitting across pages */
+  li,
+  blockquote,
+  tr,
+  h1,
+  h2,
+  h3 {
+    break-inside: avoid;
+  }
+
+  h2,
+  h3 {
+    break-after: avoid;
+  }
+
+  /* Printed checkboxes are for a pencil */
+  [data-slot="checkbox"] {
+    border: 1.25pt solid #646156 !important;
+    background: white !important;
+    color: white !important;
+  }
+}

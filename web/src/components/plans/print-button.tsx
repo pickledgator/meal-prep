@@ -1,5 +1,3 @@
-"use client";
-
 export function PrintButton({ label = "Print" }: { label?: string }) {
   return (
     <button

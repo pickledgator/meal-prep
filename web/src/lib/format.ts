@@ -61,9 +61,16 @@ export function categoryColor(category: string): string {
       return "text-cat-poultry";
     case "red meat":
       return "text-cat-meat";
-    case "vegetarian":
+    case "plant-based":
+    case "vegetarian": // legacy plans
       return "text-cat-veg";
     default:
       return "text-ink-faint";
   }
+}
+
+/** Superscript digits for meal references: [1,3] → "¹³" */
+const SUPERSCRIPTS = ["⁰", "¹", "²", "³", "⁴", "⁵", "⁶", "⁷", "⁸", "⁹"];
+export function mealSuperscripts(mealNumbers: number[]): string {
+  return mealNumbers.map((n) => SUPERSCRIPTS[n] ?? String(n)).join("");
 }

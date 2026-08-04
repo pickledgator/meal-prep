@@ -1,6 +1,5 @@
-import Link from "next/link";
+import type { PlanSummary } from "shared";
 import { PlanRow } from "./plan-card";
-import type { PlanSummary } from "@/lib/types";
 
 interface PlanIndexProps {
   plans: PlanSummary[];
@@ -12,39 +11,12 @@ function EmptyArchive() {
     <section className="slab px-6 py-12 sm:px-12">
       <p className="label text-primary">Nothing here yet</p>
       <h2 className="display-heavy mt-3.5 text-[clamp(1.875rem,4vw,2.5rem)] text-ink">
-        Your first week starts with three answers.
+        Your first week starts in Claude Code.
       </h2>
       <p className="measure-tight mt-4 text-ink-muted">
-        How many dinners, how many servings, and anything in the fridge that
-        needs using. The rest — menu, grocery list, Sunday prep, recipe cards —
-        gets written for you.
+        Run <code className="data rounded-sm bg-secondary px-1.5 py-0.5">/meal-prep</code> in the repo, approve the
+        menu, and the finished plan — grocery list, Sunday prep, recipe cards — lands here on its own.
       </p>
-
-      <ol className="mt-9 max-w-md space-y-4">
-        {[
-          { step: "1", text: "Set meals, servings, and prep difficulty" },
-          { step: "2", text: "Name proteins or produce to build around" },
-          { step: "3", text: "Read the plan, shop once, cook all week" },
-        ].map((item) => (
-          <li
-            key={item.step}
-            className="flex items-center gap-4"
-          >
-            <span className="num-block size-7 text-[0.8125rem]">
-              {item.step}
-            </span>
-            <span className="text-ink-muted">{item.text}</span>
-          </li>
-        ))}
-      </ol>
-
-      <Link
-        href="/create"
-        className="label mt-9 inline-flex items-center gap-2.5 bg-ink px-5 py-4 text-paper transition-colors duration-200 hover:bg-primary"
-      >
-        Plan a week
-        <span aria-hidden>&rarr;</span>
-      </Link>
     </section>
   );
 }
@@ -57,11 +29,8 @@ export function PlanIndex({ plans }: PlanIndexProps) {
   return (
     <ul className="-ml-4 space-y-0.5">
       {plans.map((plan) => (
-        <PlanRow key={plan.folder_name} plan={plan} />
+        <PlanRow key={plan.slug} plan={plan} />
       ))}
     </ul>
   );
 }
-
-/** Kept for compatibility with any existing imports. */
-export const PlanGrid = PlanIndex;

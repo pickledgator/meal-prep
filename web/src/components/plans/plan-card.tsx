@@ -1,6 +1,6 @@
-import Link from "next/link";
+import type { PlanDetail, PlanSummary } from "shared";
+import { Link } from "wouter";
 import { formatWeek, formatWeekShort, formatWeekYear } from "@/lib/format";
-import type { Plan, PlanSummary } from "@/lib/types";
 
 /* -------------------------------------------------------------------------- */
 /* Index row — the ruled list entry that replaced the card grid               */
@@ -10,22 +10,18 @@ export function PlanRow({ plan }: { plan: PlanSummary }) {
   return (
     <li>
       <Link
-        href={`/plans/${plan.folder_name}`}
+        href={`/plans/${plan.slug}`}
         className="index-row grid grid-cols-[4.75rem_1fr] items-baseline gap-x-5 gap-y-1.5 py-4 pl-4 pr-3 sm:grid-cols-[7rem_1fr_auto]"
       >
         <span className="data text-ink-muted">
-          {formatWeekShort(plan.week_of)}
-          <span className="ml-1.5 hidden text-ink-faint sm:inline">
-            {formatWeekYear(plan.week_of)}
-          </span>
+          {formatWeekShort(plan.weekOf)}
+          <span className="ml-1.5 hidden text-ink-faint sm:inline">{formatWeekYear(plan.weekOf)}</span>
         </span>
 
-        <span className="display text-xl text-ink sm:text-[1.4rem]">
-          {plan.theme}
-        </span>
+        <span className="display text-xl text-ink sm:text-[1.4rem]">{plan.theme}</span>
 
         <span className="data col-span-2 flex items-center gap-2.5 text-ink-muted sm:col-span-1 sm:justify-end">
-          <span>{plan.meal_count} meals</span>
+          <span>{plan.meals.length} meals</span>
           <span className="text-rule-strong">·</span>
           <span>{plan.servings} servings</span>
           <span className="text-rule-strong">·</span>
@@ -49,16 +45,13 @@ const CONTENTS = [
 
 interface PlanFeatureProps {
   summary: PlanSummary;
-  plan: Plan | null;
+  plan: PlanDetail | undefined;
 }
 
 export function PlanFeature({ summary, plan }: PlanFeatureProps) {
-  const base = `/plans/${summary.folder_name}`;
+  const base = `/plans/${summary.slug}`;
   const meals = plan?.meals ?? [];
-  const totalMinutes = meals.reduce(
-    (sum, meal) => sum + meal.prep_time_minutes + meal.cook_time_minutes,
-    0
-  );
+  const totalMinutes = meals.reduce((sum, meal) => sum + (meal.prepTimeMinutes ?? 0) + (meal.cookTimeMinutes ?? 0), 0);
 
   return (
     <article className="grid gap-x-14 gap-y-10 md:grid-cols-[1.45fr_1fr]">
@@ -72,36 +65,25 @@ export function PlanFeature({ summary, plan }: PlanFeatureProps) {
         </h2>
 
         <p className="data mt-5 flex flex-wrap items-center gap-x-2.5 gap-y-1 text-ink-muted">
-          <span>Week of {formatWeek(summary.week_of)}</span>
+          <span>Week of {formatWeek(summary.weekOf)}</span>
           <span className="text-rule-strong">·</span>
-          <span>{summary.meal_count} dinners</span>
+          <span>{summary.meals.length} dinners</span>
           <span className="text-rule-strong">·</span>
           <span>{summary.servings} servings</span>
         </p>
 
         {meals.length > 0 && (
           <ol className="-ml-4 mt-8 space-y-1">
-            {meals.map((meal, index) => (
+            {meals.map((meal) => (
               <li key={meal.id}>
-                <Link
-                  href={`${base}/recipes/${meal.id}`}
-                  className="index-row flex items-start gap-4 py-3.5 pl-4 pr-3"
-                >
-                  <span className="num-block mt-0.5 size-7 text-[0.8125rem]">
-                    {index + 1}
-                  </span>
+                <Link href={`${base}/recipes/m${meal.mealNumber}`} className="index-row flex items-start gap-4 py-3.5 pl-4 pr-3">
+                  <span className="num-block mt-0.5 size-7 text-[0.8125rem]">{meal.mealNumber}</span>
                   <span className="min-w-0 flex-1">
-                    <span className="display-quiet block text-lg text-ink">
-                      {meal.name}
-                    </span>
-                    {meal.subtitle && (
-                      <span className="mt-1 block text-[0.9375rem] text-ink-muted">
-                        {meal.subtitle}
-                      </span>
-                    )}
+                    <span className="display-quiet block text-lg text-ink">{meal.name}</span>
+                    {meal.subtitle && <span className="mt-1 block text-[0.9375rem] text-ink-muted">{meal.subtitle}</span>}
                   </span>
                   <span className="data hidden pt-1.5 text-ink-faint sm:block">
-                    {meal.prep_time_minutes + meal.cook_time_minutes} min
+                    {(meal.prepTimeMinutes ?? 0) + (meal.cookTimeMinutes ?? 0)} min
                   </span>
                 </Link>
               </li>
@@ -114,10 +96,7 @@ export function PlanFeature({ summary, plan }: PlanFeatureProps) {
           className="label group mt-8 inline-flex items-center gap-2.5 border-b-2 border-ink pb-1.5 text-ink transition-colors hover:border-primary hover:text-primary"
         >
           Open the full plan
-          <span
-            aria-hidden
-            className="transition-transform duration-200 group-hover:translate-x-1"
-          >
+          <span aria-hidden className="transition-transform duration-200 group-hover:translate-x-1">
             &rarr;
           </span>
         </Link>
@@ -130,16 +109,11 @@ export function PlanFeature({ summary, plan }: PlanFeatureProps) {
         <ul className="mt-5 space-y-3.5">
           {CONTENTS.map((entry) => (
             <li key={entry.label}>
-              <Link
-                href={`${base}${entry.href}`}
-                className="group flex items-baseline justify-between gap-4"
-              >
+              <Link href={`${base}${entry.href}`} className="group flex items-baseline justify-between gap-4">
                 <span className="display-quiet text-[1.0625rem] text-ink transition-colors group-hover:text-primary">
                   {entry.label}
                 </span>
-                <span className="data text-right text-ink-faint">
-                  {entry.note}
-                </span>
+                <span className="data text-right text-ink-faint">{entry.note}</span>
               </Link>
             </li>
           ))}

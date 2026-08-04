@@ -1,5 +1,5 @@
-import Link from "next/link";
 import type { ReactNode } from "react";
+import { Link } from "wouter";
 
 interface FolioHeaderProps {
   /** Small mono line above the title */
@@ -14,15 +14,7 @@ interface FolioHeaderProps {
   size?: "page" | "section";
 }
 
-export function FolioHeader({
-  kicker,
-  title,
-  standfirst,
-  meta,
-  back,
-  actions,
-  size = "page",
-}: FolioHeaderProps) {
+export function FolioHeader({ kicker, title, standfirst, meta, back, actions, size = "page" }: FolioHeaderProps) {
   return (
     <header className="mb-10">
       {back && (
@@ -31,10 +23,7 @@ export function FolioHeader({
           data-print="hide"
           className="label group mb-6 inline-flex items-center gap-2 text-ink-faint transition-colors hover:text-ink"
         >
-          <span
-            aria-hidden
-            className="inline-block transition-transform duration-200 group-hover:-translate-x-0.5"
-          >
+          <span aria-hidden className="inline-block transition-transform duration-200 group-hover:-translate-x-0.5">
             &larr;
           </span>
           {back.label}
@@ -53,11 +42,7 @@ export function FolioHeader({
           >
             {title}
           </h1>
-          {standfirst && (
-            <p className="display-quiet mt-3.5 text-xl italic text-ink-muted">
-              {standfirst}
-            </p>
-          )}
+          {standfirst && <p className="display-quiet mt-3.5 text-xl italic text-ink-muted">{standfirst}</p>}
         </div>
 
         {actions && <div className="flex items-center gap-2">{actions}</div>}

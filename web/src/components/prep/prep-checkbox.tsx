@@ -1,187 +1,45 @@
-"use client";
-
-import React, { useState } from "react";
+import type { ReactNode } from "react";
 import { Checkbox } from "@/components/ui/checkbox";
 import { cn } from "@/lib/utils";
 
 interface PrepCheckboxProps {
-  children: React.ReactNode;
+  checked: boolean;
+  onCheckedChange: (checked: boolean) => void;
+  /** Bold first line: icon slot + task title (+ quantity). */
+  title: ReactNode;
+  /** Quieter ruled block under the title: method text or allocation list. */
+  detail?: ReactNode;
   className?: string;
 }
 
-// Extract text content from React children
-function extractText(children: React.ReactNode): string {
-  if (typeof children === "string") return children;
-  if (typeof children === "number") return String(children);
-  if (Array.isArray(children)) return children.map(extractText).join("");
-  if (React.isValidElement(children)) {
-    const props = children.props as { children?: React.ReactNode };
-    return extractText(props.children);
-  }
-  return "";
-}
-
-// Split React children at the point where description starts (after superscripts, before capital letter)
-function splitChildrenAtDescription(children: React.ReactNode): {
-  header: React.ReactNode[];
-  description: React.ReactNode[];
-} | null {
-  const childArray = React.Children.toArray(children);
-  const header: React.ReactNode[] = [];
-  const description: React.ReactNode[] = [];
-  let foundSplit = false;
-  let lastWasSuperscript = false;
-
-  for (let i = 0; i < childArray.length; i++) {
-    const child = childArray[i];
-    const text = extractText(child);
-
-    if (foundSplit) {
-      description.push(child);
-      continue;
-    }
-
-    // Check if this child contains superscripts
-    const hasSuperscript = /[¹²³⁴⁵⁶⁷⁸⁹⁰]/.test(text);
-    const hasJarEmoji = text.includes("🫙");
-
-    if (hasSuperscript || hasJarEmoji) {
-      lastWasSuperscript = true;
-      header.push(child);
-      continue;
-    }
-
-    // If previous was superscript and this starts with capital letter, it's the description
-    if (lastWasSuperscript && typeof child === "string") {
-      const trimmed = child.trimStart();
-      if (trimmed && /^[A-Z]/.test(trimmed)) {
-        foundSplit = true;
-        description.push(child);
-        continue;
-      }
-    }
-
-    header.push(child);
-  }
-
-  if (description.length > 0) {
-    return { header, description };
-  }
-  return null;
-}
-
-// Add space after leading emoji for better readability
-function formatWithEmojiSpacing(text: string): string {
-  return text.replace(/^(\p{Emoji_Presentation}|\p{Emoji}\uFE0F?)(?=\S)/u, "$1 ");
-}
-
-export function PrepCheckbox({ children, className }: PrepCheckboxProps) {
-  const [checked, setChecked] = useState(false);
-  const text = extractText(children);
-
-  // Pattern 1: Ingredient with prep instruction in parentheses
-  // e.g., "🧄 Garlic (10 cloves; peel and mince)🫙"
-  const ingredientMatch = text.match(/^(.+?\([^;)]+);\s*(.+?)\)(.*)$/);
-
-  if (ingredientMatch) {
-    const [, ingredientPart, prepInstructions, suffix] = ingredientMatch;
-
-    return (
-      <div
-        className={cn(
-          "-mx-2 flex min-h-11 items-start gap-3 rounded px-2 py-2 transition-colors hover:bg-accent/35",
-          className
-        )}
-      >
-        <Checkbox
-          checked={checked}
-          onCheckedChange={(value) => setChecked(value === true)}
-          className="mt-1"
-        />
-        <div className={cn("flex-1 transition-colors", checked && "opacity-55")}>
-          <div
-            className={cn(
-              "font-medium text-ink",
-              checked && "line-through decoration-ink-faint"
-            )}
-          >
-            {formatWithEmojiSpacing(ingredientPart.trim())}){suffix}
-          </div>
-          <div
-            className={cn(
-              "mt-1 border-l-2 border-rule pl-3 text-[0.9375rem] text-ink-muted",
-              checked && "line-through decoration-ink-faint"
-            )}
-          >
-            {prepInstructions}
-          </div>
-        </div>
-      </div>
-    );
-  }
-
-  // Pattern 2: Component/task with description after superscripts
-  // e.g., "**Gochujang Glaze** — see file.md¹ Whisk together..."
-  const descriptionSplit = splitChildrenAtDescription(children);
-
-  if (descriptionSplit) {
-    const { header, description } = descriptionSplit;
-
-    return (
-      <div
-        className={cn(
-          "-mx-2 flex min-h-11 items-start gap-3 rounded px-2 py-2 transition-colors hover:bg-accent/35",
-          className
-        )}
-      >
-        <Checkbox
-          checked={checked}
-          onCheckedChange={(value) => setChecked(value === true)}
-          className="mt-1"
-        />
-        <div className={cn("flex-1 transition-colors", checked && "opacity-55")}>
-          <div
-            className={cn(
-              "font-medium text-ink",
-              checked && "line-through decoration-ink-faint"
-            )}
-          >
-            {header}
-          </div>
-          <div
-            className={cn(
-              "mt-1 border-l-2 border-rule pl-3 text-[0.9375rem] text-ink-muted",
-              checked && "line-through decoration-ink-faint"
-            )}
-          >
-            {description}
-          </div>
-        </div>
-      </div>
-    );
-  }
-
-  // Default single-line rendering for items without prep instructions
+/**
+ * One prep task with a check-off box. Purely presentational now — the old
+ * version regex-split rendered markdown into header/description; structured
+ * prep tasks pass those parts explicitly, and state lives with the caller
+ * (localStorage via usePrepState).
+ */
+export function PrepCheckbox({ checked, onCheckedChange, title, detail, className }: PrepCheckboxProps) {
   return (
     <div
       className={cn(
         "-mx-2 flex min-h-11 items-start gap-3 rounded px-2 py-2 transition-colors hover:bg-accent/35",
-        className
+        className,
       )}
     >
-      <Checkbox
-        checked={checked}
-        onCheckedChange={(value) => setChecked(value === true)}
-        className="mt-1"
-      />
-      <span
-        className={cn(
-          "flex-1 font-medium text-ink transition-colors",
-          checked && "line-through decoration-ink-faint opacity-55"
+      <Checkbox checked={checked} onCheckedChange={(value) => onCheckedChange(value === true)} className="mt-1" />
+      <div className={cn("flex-1 transition-colors", checked && "opacity-55")}>
+        <div className={cn("font-medium text-ink", checked && "line-through decoration-ink-faint")}>{title}</div>
+        {detail && (
+          <div
+            className={cn(
+              "mt-1 border-l-2 border-rule pl-3 text-[0.9375rem] text-ink-muted",
+              checked && "line-through decoration-ink-faint",
+            )}
+          >
+            {detail}
+          </div>
         )}
-      >
-        {children}
-      </span>
+      </div>
     </div>
   );
 }
