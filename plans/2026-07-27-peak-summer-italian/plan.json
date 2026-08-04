@@ -1,0 +1,134 @@
+{
+  "week_of": "2026-07-27",
+  "folder_name": "2026-07-27-peak-summer-italian",
+  "generated_at": "2026-07-26T18:00:00Z",
+  "servings": 5,
+  "leftovers": false,
+  "theme": "Peak Summer Italian",
+  "difficulty": "normal",
+  "meals": [
+    {
+      "id": "m1",
+      "name": "Chicken Caesar with Little Gem & Shaved Brussels",
+      "subtitle": "with Garlic Sourdough Croutons",
+      "protein": "rotisserie chicken",
+      "protein_category": "poultry",
+      "cuisine": "italian-american",
+      "components": ["caesar-dressing", "garlic-sourdough-croutons", "rotisserie-chicken-broth"],
+      "key_ingredients": ["rotisserie chicken", "little gem lettuce", "brussels sprouts", "parmigiano-reggiano", "sourdough"],
+      "prep_time_minutes": 10,
+      "cook_time_minutes": 5
+    },
+    {
+      "id": "m2",
+      "name": "Summer Minestrone with Chicken",
+      "subtitle": "with Basil Pesto & Grilled Garlic Bread",
+      "protein": "rotisserie chicken",
+      "protein_category": "poultry",
+      "cuisine": "italian",
+      "components": ["rotisserie-chicken-broth", "minestrone-base", "basil-pesto"],
+      "key_ingredients": ["rotisserie chicken", "zucchini", "broccoli", "cannellini beans", "cherry tomatoes", "basil"],
+      "prep_time_minutes": 5,
+      "cook_time_minutes": 20
+    },
+    {
+      "id": "m3",
+      "name": "Pan-Seared Sirloin with Parmesan Polenta",
+      "subtitle": "with Roasted Broccoli & Brussels and Lemon-Rosemary Butter",
+      "protein": "top sirloin",
+      "protein_category": "red meat",
+      "cuisine": "italian",
+      "components": ["parmesan-polenta", "lemon-rosemary-butter", "basil-pesto", "rotisserie-chicken-broth"],
+      "key_ingredients": ["top sirloin", "polenta & grits", "broccoli", "brussels sprouts", "heirloom tomatoes", "rosemary"],
+      "prep_time_minutes": 8,
+      "cook_time_minutes": 22
+    }
+  ],
+  "components": [
+    {
+      "id": "rotisserie-chicken-broth",
+      "name": "Rotisserie Chicken Broth",
+      "type": "stock",
+      "yield": "8 cups",
+      "used_in": ["m2", "m3"]
+    },
+    {
+      "id": "caesar-dressing",
+      "name": "Caesar Dressing",
+      "type": "dressing",
+      "yield": "1 1/4 cups",
+      "used_in": ["m1"]
+    },
+    {
+      "id": "garlic-sourdough-croutons",
+      "name": "Garlic Sourdough Croutons",
+      "type": "garnish",
+      "yield": "4 1/2 cups",
+      "used_in": ["m1"]
+    },
+    {
+      "id": "basil-pesto",
+      "name": "Basil Pesto",
+      "type": "sauce",
+      "yield": "3/4 cup",
+      "used_in": ["m2", "m3"]
+    },
+    {
+      "id": "minestrone-base",
+      "name": "Summer Minestrone Base",
+      "type": "soup base",
+      "yield": "9 cups",
+      "used_in": ["m2"]
+    },
+    {
+      "id": "parmesan-polenta",
+      "name": "Parmesan Polenta",
+      "type": "grain",
+      "yield": "6 cups cooked",
+      "used_in": ["m3"]
+    },
+    {
+      "id": "lemon-rosemary-butter",
+      "name": "Lemon-Rosemary Butter",
+      "type": "compound butter",
+      "yield": "1/3 cup (5 coins)",
+      "used_in": ["m3"]
+    }
+  ],
+  "grocery": {
+    "produce": [
+      {"item": "Little Gem Lettuce", "quantity": "5 heads (~1 1/4 lb / 567 g)", "meals": ["m1"]},
+      {"item": "Brussels Sprouts", "quantity": "1 1/2 lb / 680 g", "meals": ["m1", "m3"]},
+      {"item": "Broccoli", "quantity": "2 large crowns (~2 lb / 907 g)", "meals": ["m2", "m3"]},
+      {"item": "Zucchini", "quantity": "1 large (~12 oz / 340 g)", "meals": ["m2"]},
+      {"item": "Cherry Tomatoes", "quantity": "1 pint (10 oz / 283 g)", "meals": ["m2"]},
+      {"item": "Heirloom Tomatoes", "quantity": "2 medium (~1 lb / 454 g)", "meals": ["m3"]},
+      {"item": "Yellow Onions", "quantity": "2 medium", "meals": ["m2"]},
+      {"item": "Carrots", "quantity": "3 medium (8 oz / 227 g)", "meals": ["m2"]},
+      {"item": "Celery", "quantity": "4 stalks", "meals": ["m2"]},
+      {"item": "Garlic", "quantity": "2 heads (16 cloves)", "meals": ["m1", "m2", "m3"]},
+      {"item": "Lemons", "quantity": "5", "meals": ["m1", "m2", "m3"]},
+      {"item": "Fresh Basil", "quantity": "2 bunches (~3 oz / 85 g)", "meals": ["m2", "m3"]},
+      {"item": "Fresh Rosemary", "quantity": "1 small bunch (5 sprigs)", "meals": ["m2", "m3"]}
+    ],
+    "proteins": [
+      {"item": "Rotisserie Chickens", "quantity": "2 (2 1/2-3 lb / 1.1-1.4 kg each)", "meals": ["m1", "m2"]},
+      {"item": "Top Sirloin Steak", "quantity": "2 lb / 907 g (2 steaks, 1 1/4-inch thick)", "meals": ["m3"]}
+    ],
+    "dairy_eggs": [],
+    "cheese": [
+      {"item": "Parmigiano-Reggiano", "quantity": "10 oz / 283 g wedge, with rind", "meals": ["m1", "m2", "m3"]}
+    ],
+    "shelf_stable": [
+      {"item": "Cannellini Beans", "quantity": "2 (15.5 oz / 439 g) cans", "meals": ["m2"]},
+      {"item": "Prepared Polenta", "quantity": "1 (18 oz / 510 g) tube", "meals": ["m3"]},
+      {"item": "Grits", "quantity": "3/4 cup / 120 g (stone-ground or quick)", "meals": ["m3"]},
+      {"item": "Pine Nuts", "quantity": "3 Tbsp / 25 g", "meals": ["m2", "m3"]},
+      {"item": "Tomato Paste", "quantity": "2 Tbsp", "meals": ["m2"]},
+      {"item": "Anchovy Fillets or Paste (optional)", "quantity": "2 oz jar", "meals": ["m1"]}
+    ],
+    "bakery": [
+      {"item": "Sourdough Loaf", "quantity": "1 round (~1 lb / 454 g)", "meals": ["m1", "m2"]}
+    ]
+  }
+}

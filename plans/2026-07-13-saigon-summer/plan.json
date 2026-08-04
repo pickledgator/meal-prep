@@ -1,0 +1,127 @@
+{
+  "week_of": "2026-07-13",
+  "folder_name": "2026-07-13-saigon-summer",
+  "generated_at": "2026-07-12T09:13:07-07:00",
+  "servings": 4,
+  "leftovers": false,
+  "theme": "Saigon Summer",
+  "difficulty": "normal",
+  "meals": [
+    {
+      "id": "m1",
+      "name": "Lemongrass Grilled Chicken",
+      "subtitle": "with Saigon Street Corn & Herbs",
+      "protein": "chicken thighs",
+      "protein_category": "poultry",
+      "cuisine": "vietnamese",
+      "components": ["lemongrass-marinade", "nuoc-cham", "scallion-oil"],
+      "key_ingredients": ["chicken thighs", "lemongrass", "sweet corn", "jasmine rice", "persian cucumber", "mint", "cilantro", "lime"],
+      "prep_time_minutes": 10,
+      "cook_time_minutes": 20
+    },
+    {
+      "id": "m2",
+      "name": "Caramel-Glazed Turkey Meatballs",
+      "subtitle": "with Blistered Green Beans & Jasmine Rice",
+      "protein": "ground turkey",
+      "protein_category": "poultry",
+      "cuisine": "vietnamese",
+      "components": ["caramel-glaze", "do-chua", "scallion-oil", "fried-shallots"],
+      "key_ingredients": ["ground turkey", "ginger", "fish sauce", "green beans", "jasmine rice", "scallions", "lime"],
+      "prep_time_minutes": 15,
+      "cook_time_minutes": 15
+    },
+    {
+      "id": "m3",
+      "name": "Grilled Lemongrass Shrimp Bún Bowl",
+      "subtitle": "with Nectarine-Sungold Salad",
+      "protein": "shrimp",
+      "protein_category": "seafood",
+      "cuisine": "vietnamese",
+      "components": ["lemongrass-marinade", "nuoc-cham", "do-chua", "scallion-oil", "fried-shallots"],
+      "key_ingredients": ["shrimp", "rice vermicelli", "butter lettuce", "persian cucumber", "nectarines", "sungold tomatoes", "peanuts", "mint", "cilantro"],
+      "prep_time_minutes": 20,
+      "cook_time_minutes": 10
+    }
+  ],
+  "components": [
+    {
+      "id": "nuoc-cham",
+      "name": "Nuoc Cham",
+      "type": "sauce",
+      "yield": "1 2/3 cups",
+      "used_in": ["m1", "m3"]
+    },
+    {
+      "id": "scallion-oil",
+      "name": "Scallion Oil (Mỡ Hành)",
+      "type": "sauce",
+      "yield": "3/4 cup",
+      "used_in": ["m1", "m2", "m3"]
+    },
+    {
+      "id": "lemongrass-marinade",
+      "name": "Lemongrass Marinade",
+      "type": "marinade",
+      "yield": "1 1/4 cups",
+      "used_in": ["m1", "m3"]
+    },
+    {
+      "id": "do-chua",
+      "name": "Đồ Chua (Pickled Carrot & Daikon)",
+      "type": "pickle",
+      "yield": "3 cups",
+      "used_in": ["m2", "m3"]
+    },
+    {
+      "id": "caramel-glaze",
+      "name": "Vietnamese Caramel Glaze (Nước Màu)",
+      "type": "sauce",
+      "yield": "2/3 cup",
+      "used_in": ["m2"]
+    },
+    {
+      "id": "fried-shallots",
+      "name": "Fried Shallots",
+      "type": "garnish",
+      "yield": "3/4 cup (plus ~1/2 cup shallot oil)",
+      "used_in": ["m2", "m3"]
+    }
+  ],
+  "grocery": {
+    "produce": [
+      { "item": "Lemongrass", "quantity": "4 stalks", "meals": ["m1", "m3"] },
+      { "item": "Garlic", "quantity": "1 large head (~14 cloves)", "meals": ["m1", "m2", "m3"] },
+      { "item": "Fresh Ginger", "quantity": "2-inch piece (~30 g)", "meals": ["m2"] },
+      { "item": "Shallots", "quantity": "5 medium", "meals": ["m1", "m2", "m3"] },
+      { "item": "Scallions", "quantity": "1 bunch (8)", "meals": ["m1", "m2", "m3"] },
+      { "item": "Limes", "quantity": "7", "meals": ["m1", "m2", "m3"] },
+      { "item": "Persian Cucumbers", "quantity": "5 (~450 g)", "meals": ["m1", "m3"] },
+      { "item": "Carrots", "quantity": "2 medium (~200 g)", "meals": ["m2", "m3"] },
+      { "item": "Daikon Radish", "quantity": "1 small (~225 g)", "meals": ["m2", "m3"] },
+      { "item": "Sweet Corn", "quantity": "4 ears", "meals": ["m1"] },
+      { "item": "Green Beans", "quantity": "1 lb (454 g)", "meals": ["m2"] },
+      { "item": "Fresno Chilies", "quantity": "2", "meals": ["m1", "m3"] },
+      { "item": "Nectarines (firm-ripe)", "quantity": "2 (~300 g)", "meals": ["m3"] },
+      { "item": "Sungold or Cherry Tomatoes", "quantity": "1 pint (~300 g)", "meals": ["m3"] },
+      { "item": "Butter Lettuce", "quantity": "1 head", "meals": ["m3"] },
+      { "item": "Mint", "quantity": "1 bunch", "meals": ["m1", "m2", "m3"] },
+      { "item": "Cilantro", "quantity": "1 bunch", "meals": ["m1", "m2", "m3"] }
+    ],
+    "proteins": [
+      { "item": "Boneless-Skinless Chicken Thighs", "quantity": "2 lb (907 g)", "meals": ["m1"] },
+      { "item": "Ground Turkey (93% lean)", "quantity": "1.5 lb (680 g)", "meals": ["m2"] },
+      { "item": "Large Shrimp (21-25 ct), peeled & deveined", "quantity": "1.25 lb (567 g)", "meals": ["m3"] }
+    ],
+    "dairy_eggs": [
+      { "item": "Egg", "quantity": "1", "meals": ["m2"] }
+    ],
+    "shelf_stable": [
+      { "item": "Jasmine Rice", "quantity": "2 cups (400 g)", "meals": ["m1", "m2"] },
+      { "item": "Rice Vermicelli", "quantity": "10-12 oz (300-340 g)", "meals": ["m3"] },
+      { "item": "Fish Sauce", "quantity": "1 bottle (~1 cup / 240 ml used)", "meals": ["m1", "m2", "m3"] },
+      { "item": "Panko Breadcrumbs", "quantity": "1/2 cup (30 g)", "meals": ["m2"] },
+      { "item": "Roasted Peanuts (unsalted)", "quantity": "1/2 cup (70 g)", "meals": ["m3"] }
+    ]
+  }
+}

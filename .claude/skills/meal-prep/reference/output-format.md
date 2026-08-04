@@ -312,7 +312,7 @@ _Optional shortcuts — no judgment_
 
 ## 5. prep-list.md — Sunday Prep List
 
-Checkbox format with precise instructions and yields. **Order tasks for maximum efficiency—long-running passive tasks first.**
+Checkbox format with precise instructions and yields. **The list must be executable top-to-bottom: satisfy dependencies first, then optimize for passive time.**
 
 ```markdown
 # Sunday Prep List
@@ -321,44 +321,58 @@ _Difficulty: Normal_
 
 ---
 
-☐ **Preheat Oven to 350°F** 🫙
+## Set Up
 
-☐ **Start Rosemary Bread** — see `components/rosemary-bread.md`⁴
-Mix dough and set aside to rise (~1-1.5 hours)
-
-☐ **Start Roasted Garlic Butter** (steps 1-2) — see `components/roasted-garlic-butter.md`³
-Prep garlic bulb, wrap in foil, place in oven to roast (~1 hour)
-
-☐ **Cook Farro** (½ cup; according to package instructions)³
+☐ **Preheat Oven to 350°F**
 
 ---
 
-## Prep Produce (⏱ 30 minutes)
+## Prep for Long-Running Tasks (⏱ 10 minutes)
 
-- ☐ Butternut Squash (1; peel & dice)³⁴
-- ☐ Russet Potatoes (1; julienne² | 1; dice into cubes¹)🫙
-- ☐ Garlic (5 cloves; peel)⁵🫙
-- ☐ Leeks (1½; trim, halve lengthwise, wash, & slice into 2" pieces¹² | ½; halve & thinly slice⁵)
-- ☐ Lemon (1; thinly slice¹² | 1; cut in half lengthwise & thinly slice⁵)
+- ☐ **Garlic — 1 bulb / about 10 cloves**
+  - 1 bulb → trim top → Roasted Garlic Butter 🫙
+- ☐ **Lemon — 1**
+  - 1 → finely zest; juice → Farro 🫙
+
+---
+
+## Start Long-Running Tasks
+
+☐ **Start Rosemary Bread** — steps 1–3 in `components/rosemary-bread.md`⁴
+
+☐ **Start Roasted Garlic Butter** — steps 1–2 in `components/roasted-garlic-butter.md`³
+
+☐ **Cook Farro** (½ cup / 100 g dry)³
+Rinse the farro. Combine with 1½ cups (360 ml) water and ¼ tsp kosher salt; bring to a boil, reduce to a simmer, and cook uncovered until tender with a slight chew, 25–30 minutes. Drain, fold in the prepped lemon zest and juice, and cool. Yield: about 1½ cups → “M3 — farro.”
+
+---
+
+## Prep Remaining Produce (⏱ 25 minutes)
+
+- ☐ **Butternut Squash — 1 / about 2 lb / 907 g**
+  - all → peel; cut into 1-inch dice → “M3/M4 — squash skillet”³⁴
+- ☐ **Russet Potatoes — 2 / about 1 lb / 454 g**
+  - 1 → julienne → Shoestring Potatoes 🫙
+  - 1 → cut into 1-inch dice → Mashed Potatoes 🫙
+- ☐ **Leeks — 2**
+  - 1½ → trim; wash; cut into 2-inch pieces → Roast Chicken 🫙
+  - ½ → trim; wash; thinly slice → “M5 — pasta”⁵
+
+---
+
+_— CLEANING BREAK —_
 
 ---
 
 ## Cooked Prep Tasks
 
-☐ **Boil diced Potatoes** (steps 1-2 in `components/mashed-potatoes.md`)¹
-Cook until fork-tender, strain, cool, and store
+☐ **Boil Diced Potatoes** — steps 1–2 in `components/mashed-potatoes.md`¹
 
 ☐ **Fry Shoestring Potatoes** — see `components/shoestring-potatoes.md`²
-Fry julienned potatoes until golden and crispy, store in freezer
 
-☐ **Shape Rosemary Bread** (steps 4-5 in `components/rosemary-bread.md`)⁴
+☐ **Shape Rosemary Bread** — steps 4–5 in `components/rosemary-bread.md`⁴
 
-☐ **Finish Roasted Garlic Butter** (step 3)³
-Once garlic is cool, squeeze into softened butter
-
----
-
-_— CLEANING BREAK —_
+☐ **Finish Roasted Garlic Butter** — step 3 in `components/roasted-garlic-butter.md`³
 
 ---
 
@@ -373,7 +387,6 @@ _— CLEANING BREAK —_
 ## Optional Additional Prep
 
 ☐ **Prepare Roast Chicken** — see `components/roast-chicken.md`¹²
-Can be made Sunday or day-of for Meal 1
 
 ---
 
@@ -384,31 +397,46 @@ Can be made Sunday or day-of for Meal 1
 ⁴ = Rosemary Turkey Melts
 ⁵ = Leek & Lemon Pasta
 
-🫙 = used in a prepped component (keep out during prep)
+🫙 = consumed by a Sunday component
 ⏱ = estimated time
 ```
 
 **Rules:**
 
-**Task Ordering (Critical for Efficiency):**
-1. **Preheat oven** if needed for roasting
-2. **Long-running passive tasks first** — bread dough rising, garlic roasting, grains cooking
-3. **Prep produce** — knife work while passive tasks run
-4. **Cooked prep tasks** — sautéing, blanching, frying
-5. **Prepare components** — sauces, dressings (often use prepped items)
+**Task Ordering (Critical):**
+1. **Set up equipment** when setup has no unmet ingredient dependency
+2. **Prep prerequisites for long-running tasks**
+3. **Start long-running tasks** only after those prerequisites appear above them
+4. **Prep remaining ingredients** while passive work runs
+5. **Cook prepared ingredients**
+6. **Assemble components**
+7. **Finish long-running tasks**
+
+Audit the final list for forward references. A line must never tell the cook to pull, grab, or prepare ingredients from a later section. Split a task into Start and Finish entries when the phases have different dependencies.
 
 **Formatting:**
 - Checkbox format (☐) for each major task
-- Use bullet checkboxes (- ☐) for sub-items within a section
-- Bold ingredient/component name
-- Quantity and prep instructions in parentheses: `(8 oz / 227 g; slice/chop at a diagonal)`
+- Every ingredient uses a bullet checkbox parent (`- ☐`) plus one level of allocation children
+- Parent line contains only the bold ingredient name and total quantity: `**Zucchini — 3 medium / 1¼ lb / 567 g**`
+- Child lines use `quantity → prep → destination`
 - **Include gram weights** in prep quantities where helpful
 - Include yields where relevant: `(yield: ~6 cups)` or `(yield: ~1½ cups)`
-- Split prep notation for different uses: `(1; julienne² | 1; dice into cubes¹)`
+- Use `Component Name 🫙` for Sunday consumption; never spell out “used today in,” “for use in,” or “keep out for”
+- Use `“M# — label”ⁿ` for weeknight storage; never spell out “store labeled”
+- Single-use and multi-use ingredients use the same parent/child structure
+- Do not use inline `Ingredient (quantity; prep)` formatting, HTML, blockquotes, or bordered description fragments
+- Never add food emoji manually; the renderer derives one from the parent ingredient only, and allocation children intentionally have none
+- **Grains/starches get complete cooking instructions**: put the full method in the linked component file, or inline when no component file exists—never both and never “according to package instructions”
 - Superscripts indicate which component/recipe uses this prep
-- 🫙 jar emoji = ingredient used in a prepped component (keep it out during prep)
+- 🫙 jar emoji = allocation consumed by a Sunday component
 - ⏱ clock = estimated time for that section
-- Add _— CLEANING BREAK —_ between raw produce and cooked prep tasks
+- Add a cleaning/sanitizing task immediately after raw protein handling
+
+**Instruction Ownership:**
+- A linked task contains only its name, optional step range, component link, and meal references
+- Do not follow a linked task with a prose summary of the same cooking method
+- An unlinked task contains the complete method inline
+- Never split the same instructions between `prep-list.md` and a component page
 
 **KEY Format:**
 - The KEY should reference **components or sub-recipes**, not just meal names
@@ -419,8 +447,7 @@ Can be made Sunday or day-of for Meal 1
 - Include a dedicated "Cooked Prep Tasks" section for tasks that involve actual cooking
 - Each cooking task (sauté, fry, caramelize, blanch, boil, roast) should be a **separate checkbox**
 - Reference step numbers when task is part of a larger component recipe: `(steps 1-2 in...)`
-- Include brief inline instructions AND reference to detailed component file
-
+- Use either a component reference or complete inline instructions, never both
 - Reference component files with `see components/filename.md`
 - Include KEY at bottom
 - Include storage notes where relevant

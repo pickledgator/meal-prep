@@ -1,0 +1,92 @@
+{
+  "week_of": "2026-03-02",
+  "folder_name": "2026-03-02-spring-bistro",
+  "generated_at": "2026-03-01T12:00:00-08:00",
+  "servings": 2,
+  "leftovers": false,
+  "theme": "Spring Bistro",
+  "difficulty": "normal",
+  "meals": [
+    {
+      "id": "m1",
+      "name": "Honey-Dijon Chicken Thighs",
+      "subtitle": "with Roasted Asparagus & Herbed Farro",
+      "protein": "chicken thighs",
+      "protein_category": "poultry",
+      "cuisine": "french-american",
+      "components": ["herbed-farro", "honey-dijon-base"],
+      "key_ingredients": ["chicken thighs", "asparagus", "farro", "Dijon mustard", "honey"],
+      "prep_time_minutes": 10,
+      "cook_time_minutes": 25
+    },
+    {
+      "id": "m2",
+      "name": "Shredded Chicken & Charred Asparagus Grain Bowl",
+      "subtitle": "with Smoky Paprika Vinaigrette & Crispy Shallots",
+      "protein": "chicken thighs (cascaded from m1)",
+      "protein_category": "poultry",
+      "cuisine": "french-american",
+      "components": ["herbed-farro", "smoky-paprika-vinaigrette", "crispy-shallots"],
+      "key_ingredients": ["chicken thighs", "asparagus", "farro", "arugula", "radishes"],
+      "prep_time_minutes": 5,
+      "cook_time_minutes": 15
+    },
+    {
+      "id": "m3",
+      "name": "Pan-Seared Halibut",
+      "subtitle": "with Lemon-Caper Brown Butter, Crushed Potatoes & Arugula Salad",
+      "protein": "halibut",
+      "protein_category": "seafood",
+      "cuisine": "french-american",
+      "components": ["smoky-paprika-vinaigrette", "crispy-shallots"],
+      "key_ingredients": ["halibut", "fingerling potatoes", "capers", "arugula", "lemon"],
+      "prep_time_minutes": 5,
+      "cook_time_minutes": 20
+    }
+  ],
+  "components": [
+    {
+      "id": "herbed-farro",
+      "name": "Herbed Farro",
+      "type": "grain",
+      "yield": "3 cups cooked",
+      "used_in": ["m1", "m2"]
+    },
+    {
+      "id": "smoky-paprika-vinaigrette",
+      "name": "Smoky Paprika Vinaigrette",
+      "type": "dressing",
+      "yield": "⅓ cup",
+      "used_in": ["m2", "m3"]
+    },
+    {
+      "id": "crispy-shallots",
+      "name": "Crispy Shallots",
+      "type": "garnish",
+      "yield": "3-4 Tbsp",
+      "used_in": ["m2", "m3"]
+    }
+  ],
+  "grocery": {
+    "produce": [
+      { "item": "Asparagus", "quantity": "1 bunch / ~1 lb / 454 g", "meals": ["m1", "m2"] },
+      { "item": "Arugula", "quantity": "5 oz / 142 g", "meals": ["m2", "m3"] },
+      { "item": "Radishes", "quantity": "1 small bunch", "meals": ["m2", "m3"] },
+      { "item": "Fingerling Potatoes", "quantity": "¾ lb / 340 g", "meals": ["m3"] },
+      { "item": "Shallots", "quantity": "2 medium", "meals": ["m1", "m2", "m3"] },
+      { "item": "Garlic", "quantity": "3 cloves", "meals": ["m1", "m2", "m3"] },
+      { "item": "Lemons", "quantity": "3", "meals": ["m1", "m2", "m3"] },
+      { "item": "Flat-Leaf Parsley", "quantity": "1 bunch", "meals": ["m1", "m2", "m3"] },
+      { "item": "Fresh Thyme", "quantity": "4-5 sprigs", "meals": ["m1"] }
+    ],
+    "proteins": [
+      { "item": "Bone-In Skin-On Chicken Thighs", "quantity": "4 thighs / ~1.5 lb / 680 g", "meals": ["m1", "m2"] },
+      { "item": "Halibut Fillets", "quantity": "2 fillets / 10-12 oz / 283-340 g total", "meals": ["m3"] }
+    ],
+    "dairy_eggs": [],
+    "shelf_stable": [
+      { "item": "Farro", "quantity": "1 cup / 180 g", "meals": ["m1", "m2"] },
+      { "item": "Capers", "quantity": "2 Tbsp / 17 g", "meals": ["m3"] }
+    ]
+  }
+}

@@ -1,11 +1,11 @@
 # Gremolata
 
-_Makes about 1/4 cup_
+_Makes about 1/3 cup_
 
 ## Ingredients
 
-- 3 Tbsp Fresh Flat-Leaf Parsley, finely chopped
-- 2 tsp Lemon Zest (from about 1 lemon)
+- 1/4 cup (4 Tbsp) Fresh Flat-Leaf Parsley, finely chopped
+- 1 Tbsp Lemon Zest (from about 2 lemons)
 - 2 cloves Garlic, very finely minced
 
 ## Instructions
@@ -22,4 +22,4 @@ _Makes about 1/4 cup_
 
 **Used in:** Meals 1, 2, and 3 (all meals this week)
 
-**Note:** This classic Italian garnish adds a fresh, bright pop to finish dishes. Use about 1 tablespoon per serving, sprinkled on just before eating.
+**Note:** This classic Italian garnish adds a fresh, bright pop to finish dishes. Use about 1-2 tablespoons per serving, sprinkled on just before eating.

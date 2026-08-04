@@ -1,0 +1,124 @@
+{
+  "week_of": "2026-07-20",
+  "folder_name": "2026-07-20-summer-smokehouse",
+  "generated_at": "2026-07-19T08:46:24-07:00",
+  "servings": 4,
+  "leftovers": false,
+  "theme": "Summer Smokehouse",
+  "difficulty": "normal",
+  "must_use": ["frozen beef brisket"],
+  "meals": [
+    {
+      "id": "m1",
+      "name": "Peach-Glazed Oven Brisket",
+      "subtitle": "with Smoky Ranch Beans & Corn Slaw",
+      "protein": "beef brisket",
+      "protein_category": "red meat",
+      "cuisine": "southern-bbq",
+      "components": [
+        "smokehouse-rub",
+        "oven-smoked-brisket",
+        "peach-bbq-sauce",
+        "smoky-ranch-beans",
+        "alabama-white-sauce",
+        "quick-pickled-red-onions"
+      ],
+      "key_ingredients": ["beef brisket", "peaches", "pinto beans", "green cabbage", "sweet corn", "chipotles in adobo"],
+      "prep_time_minutes": 10,
+      "cook_time_minutes": 20
+    },
+    {
+      "id": "m2",
+      "name": "Grilled Chicken with Alabama White Sauce",
+      "subtitle": "with Charred Corn & Peach-Tomato Salad",
+      "protein": "chicken thighs",
+      "protein_category": "poultry",
+      "cuisine": "southern-bbq",
+      "components": [
+        "smokehouse-rub",
+        "alabama-white-sauce",
+        "quick-pickled-red-onions",
+        "peach-bbq-sauce"
+      ],
+      "key_ingredients": ["chicken thighs", "sweet corn", "heirloom tomatoes", "peaches", "mayonnaise", "horseradish"],
+      "prep_time_minutes": 10,
+      "cook_time_minutes": 18
+    }
+  ],
+  "components": [
+    {
+      "id": "smokehouse-rub",
+      "name": "Smokehouse Rub",
+      "type": "spice blend",
+      "yield": "5.5 Tbsp",
+      "used_in": ["m1", "m2"]
+    },
+    {
+      "id": "oven-smoked-brisket",
+      "name": "Oven-\"Smoked\" Brisket",
+      "type": "protein",
+      "yield": "~1.75 lb cooked + 2 cups braising liquid",
+      "used_in": ["m1"],
+      "notes": "Braising liquid cascades into smoky-ranch-beans"
+    },
+    {
+      "id": "peach-bbq-sauce",
+      "name": "Peach BBQ Sauce",
+      "type": "sauce",
+      "yield": "1.5 cups",
+      "used_in": ["m1", "m2"]
+    },
+    {
+      "id": "alabama-white-sauce",
+      "name": "Alabama White Sauce",
+      "type": "sauce",
+      "yield": "1.25 cups",
+      "used_in": ["m1", "m2"]
+    },
+    {
+      "id": "quick-pickled-red-onions",
+      "name": "Quick-Pickled Red Onions",
+      "type": "pickle",
+      "yield": "1.5 cups",
+      "used_in": ["m1", "m2"]
+    },
+    {
+      "id": "smoky-ranch-beans",
+      "name": "Smoky Ranch Beans",
+      "type": "side",
+      "yield": "3.5 cups",
+      "used_in": ["m1"]
+    }
+  ],
+  "grocery": {
+    "produce": [
+      { "item": "Peaches", "quantity": "4 ripe (~680 g)", "meals": ["m1", "m2"] },
+      { "item": "Heirloom Tomatoes", "quantity": "2 medium (~570 g)", "meals": ["m2"] },
+      { "item": "Persian Cucumbers", "quantity": "2 (~160 g)", "meals": ["m2"] },
+      { "item": "Green Cabbage", "quantity": "1 small head (~900 g)", "meals": ["m1"] },
+      { "item": "Sweet Corn", "quantity": "5 ears", "meals": ["m1", "m2"] },
+      { "item": "Red Onion", "quantity": "1 large", "meals": ["m1", "m2"] },
+      { "item": "Yellow Onions", "quantity": "2 medium", "meals": ["m1", "m2"] },
+      { "item": "Garlic", "quantity": "11 cloves (1 head)", "meals": ["m1", "m2"] },
+      { "item": "Cilantro", "quantity": "1 bunch (~57 g)", "meals": ["m1", "m2"] },
+      { "item": "Lemon", "quantity": "1", "meals": ["m1", "m2"] }
+    ],
+    "proteins": [
+      { "item": "Beef Brisket", "quantity": "2.5-3.5 lb (1.1-1.6 kg), from freezer", "meals": ["m1"] },
+      { "item": "Boneless-Skinless Chicken Thighs", "quantity": "1.75 lb (795 g), about 8", "meals": ["m2"] }
+    ],
+    "dairy_eggs": [
+      { "item": "Mayonnaise", "quantity": "1 cup (220 g)", "meals": ["m1", "m2"] },
+      { "item": "Prepared Horseradish", "quantity": "1 Tbsp (smallest jar)", "meals": ["m1", "m2"] }
+    ],
+    "shelf_stable": [
+      { "item": "Pinto Beans", "quantity": "2 x 15 oz cans", "meals": ["m1"] },
+      { "item": "Chipotles in Adobo", "quantity": "1 small can (uses 3 chiles)", "meals": ["m1", "m2"] },
+      { "item": "Chicken Stock", "quantity": "1.5 cups (360 ml)", "meals": ["m1"] }
+    ],
+    "optional": [
+      { "item": "Crusty Sourdough", "quantity": "0.5 loaf", "meals": ["m1"] },
+      { "item": "Flaky Salt", "quantity": "pinch", "meals": ["m1", "m2"] }
+    ]
+  }
+}

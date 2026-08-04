@@ -1,7 +1,7 @@
 ---
 name: meal-prep
 description: Generate a weekly dinner plan with prep guide, grocery list, and recipes. Asks guided questions then creates files in the project plans/ folder.
-argument-hint: "[--meals N] [--servings N] [--theme CUISINE] [--proteins LIST] [--must-use INGREDIENTS] [--difficulty LEVEL] [--leftovers]"
+argument-hint: "[--meals N] [--servings N] [--theme CUISINE] [--proteins LIST] [--must-use INGREDIENTS] [--difficulty LEVEL] [--leftovers] [--allow-repeats]"
 allowed-tools:
   - Read
   - Write
@@ -31,6 +31,7 @@ Check if command-line arguments were provided. If so, parse them:
 | `--proteins`   | comma-separated list or "auto"                       | auto    |
 | `--must-use`   | specific ingredients to incorporate                  | none    |
 | `--difficulty` | easy, normal, challenging                            | normal  |
+| `--allow-repeats` | flag (permits themes/recipes from previous weeks) | no      |
 
 **If no arguments provided**, use AskUserQuestion to gather preferences interactively:
 
@@ -47,6 +48,30 @@ Check if command-line arguments were provided. If so, parse them:
 2. Read the corresponding seasonal file: `.claude/skills/meal-prep/seasonal/{month_lowercase}.md`
 3. Use seasonal ingredients as the foundation for produce selections
 4. Match the seasonal "flavor direction" to the week's overall theme
+
+## Plan History — No Repeats
+
+**Never repeat themes or recipes from previously generated weeks**, unless the user explicitly requests a repeat (via `--allow-repeats` or by asking, e.g., "make that lemongrass chicken week again").
+
+Before choosing a theme or designing meals:
+
+1. List the existing plan folders: `ls plans/` — folder names reveal past themes
+2. List past dishes: `ls plans/*/recipes/` — filenames reveal past recipes
+3. For recent or seasonally-overlapping weeks, skim their `menu.md` to catch marquee sauces and flavor concepts
+
+**What counts as a repeat:**
+
+- **Theme**: The same theme name or an obvious re-skin (e.g., "california-grill" vs "grilled-california")
+- **Recipe**: The same signature dish, even with a different protein (e.g., harissa chicken thighs vs harissa salmon)
+- **Marquee sauce**: A sauce that headlined a previous meal (e.g., chimichurri, salsa verde, miso glaze) should not headline a new one
+
+**What does NOT count as a repeat:**
+
+- Ingredient overlap (chicken thighs, farro, kale, and lemons can appear every week)
+- Background techniques (grilling, roasting, quick pickles)
+- Pantry staples and supporting flavors used in a new context
+
+If the user explicitly allows repeats, favorites from past weeks are fair game—but still vary the supporting meals.
 
 ## Recipe Research & Inspiration
 
@@ -342,24 +367,54 @@ Nearly all ingredients used in weeknight recipes should be prepped on Sunday, un
 - **DO prep:** Marinated proteins (need time to absorb flavor), proteins for slow-cooking
 - **DON'T prep:** Cutting raw chicken into pieces (do day-of unless marinating), fish fillets (cook same day for freshness)
 
-**Prep List Ordering — Long-Running Tasks First:**
+**Prep List Ordering — Dependencies Before Optimization:**
 
-The prep list should be ordered for maximum efficiency. Start with tasks that run passively (rising, roasting, simmering) so they can proceed while you do knife work:
+The prep list must be executable from top to bottom without forward references. Starting passive work early is valuable, but never list a task before the ingredients, cuts, equipment, or prerequisite components it needs.
 
-1. **Preheat oven** (if needed for roasting garlic, bread, etc.)
-2. **Start long-running passive tasks** — bread dough rising, garlic roasting, grains simmering
-3. **Prep produce** — knife work while passive tasks run in background
-4. **Cooked prep tasks** — sautéing, blanching, frying (after produce is ready)
-5. **Prepare components** — sauces, dressings, marinades (often use prepped produce)
+Use this dependency-aware order:
 
-This ordering lets a cook work efficiently—dough rises while you chop vegetables, garlic roasts while you prep other items.
+1. **Set up equipment** — preheat an oven or set up an ice bath only when no uncompleted ingredient prep is required
+2. **Prep prerequisites for long-running tasks** — complete the exact washing, cutting, measuring, and mixing needed to start bread, braises, grains, roasts, or other passive work
+3. **Start long-running tasks** — only after every dependency for the stated step is ready
+4. **Prep remaining ingredients** — finish knife work while passive tasks run
+5. **Cook prepared ingredients** — blanch, sauté, roast, fry, or parcook
+6. **Assemble components** — make sauces, dressings, marinades, and storage portions
+7. **Finish long-running tasks** — cool, portion, label, or complete later step ranges
+
+Before finalizing the list, audit every task: each ingredient or component it consumes must appear earlier in the prep list. Never write “pull the ingredients from the breakdown below,” “grab these first,” or any equivalent forward reference. If only the beginning of a task can run early, split it into explicit **Start** and **Finish** tasks and place each after its own prerequisites.
+
+Put a cleaning/sanitizing task immediately after raw meat or seafood handling, before returning to produce or ready-to-eat components.
+
+**Canonical Prep-List Style:**
+
+- **Use one ingredient structure everywhere**: every ingredient gets a bold parent checkbox containing only its name and total quantity. Put every cut/allocation on an indented child line—even when the ingredient has only one use. Do not mix this with inline `Ingredient (quantity; prep instruction)` formatting.
+- **Use compact arrow notation**: child lines follow `quantity → prep → destination`. Keep the ingredient name at the start of the parent line so the UI can infer the correct icon.
+- **Use 🫙 instead of prose for Sunday consumption**: `🫙` means the allocation is consumed by a component prepared on Sunday. Write `5 → roughly chop → Beef Shank Seco 🫙`, never `5 → roughly chop; used today in Beef Shank Seco 🫙`, `for use in`, or `keep out for`.
+- **Use quoted labels for weeknight storage**: write `2 → mince → "M2 — meatballs"²`, not `store labeled "M2 — meatballs"`. Add a short storage condition after the label only when it matters.
+- **Never add food emoji manually**: ingredient icons are renderer-generated. Allocation child lines intentionally have no food icon; their parent ingredient supplies the visual identity. Put component names only after the second arrow so they cannot influence icon inference.
+- **Use one source of truth for cooking instructions**:
+  - When a component file exists, the prep task contains only the task name, optional step range, component link, and meal references: `☐ **Start Beef Shank Seco** — steps 1–5 in components/beef-shank-seco.md¹`.
+  - Do not add a second paragraph that paraphrases the linked method.
+  - When no component file exists, include the complete method inline and do not link elsewhere.
+- **Keep formatting flat and predictable**: one bold parent checkbox, one level of allocation children, and no HTML, blockquotes, bordered instruction fragments, or semicolon-split parentheticals in `prep-list.md`.
+
+Example:
+
+```markdown
+- ☐ **Garlic — 9 cloves**
+  - 5 → roughly chop → Beef Shank Seco 🫙
+  - 1 → finely grate → Ají Vinaigrette 🫙
+  - 3 → finely grate → "M2 — chicken marinade"²
+- ☐ **Zucchini — 3 medium / 1¼ lb / 567 g**
+  - all → halve lengthwise; cut into ¾-inch half-moons → "M2 — charred vegetables"²
+```
 
 **Prep Techniques:**
 
-- **Split prep notation**: When the same ingredient needs different cuts for different meals, specify clearly: `Russet Potatoes (2 potatoes > shoestring cut¹⁵, 2 potatoes > wedges³)`
+- **Complete grain/starch instructions**: Never write "cook according to package instructions." The full method must specify the rinse, exact water quantity (with ml), salt, heat level, cook time, rest time, yield, and portions. Keep that method in the component file when the prep task links to one; otherwise keep it inline in the prep task—never both.
 - **Blanching station**: When multiple vegetables benefit from blanching (snap peas, green beans, broccolini), set up an ice bath station and batch-blanch efficiently
-- **Ingredient cascading**: Mark ingredients that will be used in a prepped component (🫙) so the cook knows to keep them out during prep
-- **Cleaning break**: Insert a cleaning break between raw produce prep and cooked prep tasks for food safety and kitchen organization
+- **Ingredient cascading**: Mark allocations consumed by a Sunday component with 🫙
+- **Cleaning break**: Insert a cleaning break immediately after raw protein handling and before ready-to-eat work
 
 **Cooked Prep Tasks:**
 
@@ -410,6 +465,7 @@ Every recipe must be completable in **under 30 minutes** assuming Sunday prep is
 - Clear, numbered steps
 - Bold key ingredients on first mention
 - Include "Hot Tip" callouts for technique guidance
+- **Every listed ingredient must be touched by an instruction step.** If an ingredient appears in the recipe's ingredient list, a numbered step (or explicit plating direction) must say what to do with it. Labels like "reheated (from prep)" in the ingredient list do NOT count as instructions — the most common miss is prepped grains/components that need reheating (rice, pilaf, sauces served warm). Write the reheat step, including method and timing, and slot it where it overlaps with other cooking (e.g., "While the chicken grills...")
 
 **Plating Considerations:**
 
@@ -486,6 +542,12 @@ Before writing files, verify:
     - Aromatics like ginger and scallions appear in 2+ meals if purchased
     - Dairy items (yogurt, cheese) are used across multiple meals
     - If a specialty ingredient (harissa, gochujang) is opened, consider a second use
+14. **Novelty Check**: The theme and each recipe/marquee sauce are new — not used in any previous week under `plans/` (unless the user explicitly requested a repeat). See "Plan History — No Repeats."
+15. **Recipe Completeness Check**: Walk each recipe's ingredient list top to bottom and confirm every item — especially prepped components marked "reheated" or "from prep" — is referenced by a numbered instruction or plating step. An ingredient with no step (e.g., rice listed as "reheated" but never reheated in the instructions) is a bug: add the missing step.
+16. **Prep Dependency Check**: Read `prep-list.md` from top to bottom. Every task's required ingredient prep and prerequisite component must appear above it; there are no instructions to pull or grab items from a later section.
+17. **Prep Formatting Check**: Every ingredient uses a bold parent checkbox plus allocation children. There are no inline semicolon-split parentheticals, manual food emoji, HTML fragments, `used today in`, or `store labeled` phrases.
+18. **Instruction Ownership Check**: Each cooking method lives in exactly one place. Linked prep tasks do not repeat or summarize their component file's instructions; unlinked tasks contain a complete inline method.
+19. **Icon Safety Check**: Ingredient names lead parent lines, destinations follow the second arrow, and allocation child lines contain no manual food icon. This keeps renderer-generated icons tied to the ingredient rather than a destination component.
 
 ## Quantity Validation Protocol
 
@@ -556,14 +618,15 @@ Always validate these high-risk ingredients:
 
 1. Parse arguments or prompt user for preferences
 2. Detect season and read seasonal file
-3. Search the web for recipe inspiration based on theme, proteins, and seasonal ingredients
-4. Design meal concepts that satisfy all rules, adapting found recipes as needed
-5. Create detailed recipes with prep breakdown
-6. Generate grocery list with meal references
-7. Create Sunday prep checklist
-8. Write all files to the week's folder
-9. **Run Quantity Validation Protocol** — Perform explicit arithmetic on key ingredients (garlic, citrus, herbs, split vegetables, grains). Fix any mismatches found.
-10. Report completion with folder path and summary
+3. Scan `plans/` for past themes and recipes to avoid repeats (unless repeats were requested) — see "Plan History — No Repeats"
+4. Search the web for recipe inspiration based on theme, proteins, and seasonal ingredients
+5. Design meal concepts that satisfy all rules, adapting found recipes as needed
+6. Create detailed recipes with prep breakdown
+7. Generate grocery list with meal references
+8. Create Sunday prep checklist
+9. Write all files to the week's folder
+10. **Run Quantity Validation Protocol** — Perform explicit arithmetic on key ingredients (garlic, citrus, herbs, split vegetables, grains). Fix any mismatches found.
+11. Report completion with folder path and summary
 
 ## Output Summary
 

@@ -1,0 +1,135 @@
+{
+  "week_of": "2026-07-20",
+  "folder_name": "2026-07-20-peruvian-summer",
+  "generated_at": "2026-07-19T09:07:44-07:00",
+  "servings": 4,
+  "leftovers": false,
+  "theme": "Peruvian Summer",
+  "difficulty": "normal",
+  "must_use": ["frozen bone-in beef shank"],
+  "meals": [
+    {
+      "id": "m1",
+      "name": "Slow-Cooker Seco de Res",
+      "subtitle": "with Summer Corn-Tomato Salad & Lime Brown Rice",
+      "protein": "bone-in beef shank",
+      "protein_category": "red meat",
+      "cuisine": "peruvian",
+      "components": [
+        "slow-cooker-seco-de-res",
+        "lime-brown-rice",
+        "aji-amarillo-lime-vinaigrette",
+        "aji-verde",
+        "quick-pickled-red-onions"
+      ],
+      "key_ingredients": [
+        "beef shank",
+        "cilantro",
+        "aji panca",
+        "sweet corn",
+        "ripe tomatoes",
+        "brown rice"
+      ],
+      "prep_time_minutes": 10,
+      "cook_time_minutes": 15
+    },
+    {
+      "id": "m2",
+      "name": "Aji-Panca Chicken Thighs",
+      "subtitle": "with Charred Summer Vegetables & Aji Verde",
+      "protein": "boneless-skinless chicken thighs",
+      "protein_category": "poultry",
+      "cuisine": "peruvian",
+      "components": [
+        "aji-panca-chicken-marinade",
+        "lime-brown-rice",
+        "aji-amarillo-lime-vinaigrette",
+        "aji-verde",
+        "quick-pickled-red-onions"
+      ],
+      "key_ingredients": [
+        "chicken thighs",
+        "aji panca",
+        "zucchini",
+        "sweet corn",
+        "ripe tomatoes",
+        "cilantro"
+      ],
+      "prep_time_minutes": 5,
+      "cook_time_minutes": 22
+    }
+  ],
+  "components": [
+    {
+      "id": "slow-cooker-seco-de-res",
+      "name": "Slow-Cooker Seco de Res",
+      "type": "protein",
+      "yield": "about 5 cups beef and sauce",
+      "used_in": ["m1"]
+    },
+    {
+      "id": "lime-brown-rice",
+      "name": "Lime Brown Rice",
+      "type": "grain",
+      "yield": "about 6 cups cooked",
+      "used_in": ["m1", "m2"]
+    },
+    {
+      "id": "aji-amarillo-lime-vinaigrette",
+      "name": "Aji Amarillo-Lime Vinaigrette",
+      "type": "dressing",
+      "yield": "about 1 1/8 cups",
+      "used_in": ["m1", "m2"]
+    },
+    {
+      "id": "aji-verde",
+      "name": "Yogurt Aji Verde",
+      "type": "sauce",
+      "yield": "about 1 1/4 cups",
+      "used_in": ["m1", "m2"]
+    },
+    {
+      "id": "quick-pickled-red-onions",
+      "name": "Quick-Pickled Red Onions",
+      "type": "pickle",
+      "yield": "about 1 1/2 cups",
+      "used_in": ["m1", "m2"]
+    },
+    {
+      "id": "aji-panca-chicken-marinade",
+      "name": "Aji-Panca Chicken Marinade",
+      "type": "marinade",
+      "yield": "about 1/2 cup",
+      "used_in": ["m2"]
+    }
+  ],
+  "grocery": {
+    "produce": [
+      {"item": "Yellow Onion", "quantity": "1 large (12 oz / 340 g)", "meals": ["m1"]},
+      {"item": "Red Onion", "quantity": "1 medium (8 oz / 227 g)", "meals": ["m1", "m2"]},
+      {"item": "Garlic", "quantity": "1 large head (about 12 cloves / 60 g; uses 11)", "meals": ["m1", "m2"]},
+      {"item": "Red Bell Peppers", "quantity": "2 large (14 oz / 400 g)", "meals": ["m1", "m2"]},
+      {"item": "Sweet Corn", "quantity": "4 ears (about 2 lb / 907 g whole; yields about 4 cups kernels)", "meals": ["m1", "m2"]},
+      {"item": "Ripe Tomatoes", "quantity": "2 lb (907 g)", "meals": ["m1", "m2"]},
+      {"item": "Zucchini", "quantity": "3 medium (1.25 lb / 567 g)", "meals": ["m2"]},
+      {"item": "Cilantro", "quantity": "2 large bunches (about 4 oz / 114 g)", "meals": ["m1", "m2"]},
+      {"item": "Jalapeno", "quantity": "1 large (about 1 oz / 28 g)", "meals": ["m1", "m2"]},
+      {"item": "Limes", "quantity": "7 (about 1 lb / 454 g)", "meals": ["m1", "m2"]}
+    ],
+    "proteins": [
+      {"item": "Bone-In Beef Shank", "quantity": "3.5-4 lb (1.6-1.8 kg), from freezer", "meals": ["m1"]},
+      {"item": "Boneless-Skinless Chicken Thighs", "quantity": "1.75 lb (794 g), about 8 small thighs", "meals": ["m2"]}
+    ],
+    "dairy_eggs": [
+      {"item": "Plain Greek Yogurt", "quantity": "1 cup (8 oz / 227 g)", "meals": ["m1", "m2"]}
+    ],
+    "shelf_stable": [
+      {"item": "Long-Grain Brown Rice", "quantity": "2 cups dry (13.5 oz / 385 g)", "meals": ["m1", "m2"]},
+      {"item": "Aji Amarillo Paste", "quantity": "4 Tbsp (60 g; buy 1 small jar)", "meals": ["m1", "m2"]},
+      {"item": "Aji Panca Paste", "quantity": "4 Tbsp (60 g; buy 1 small jar)", "meals": ["m1", "m2"]},
+      {"item": "Tomato Paste", "quantity": "2 Tbsp (32 g; buy 1 small tube or can)", "meals": ["m1"]},
+      {"item": "Low-Sodium Beef Broth", "quantity": "1 cup (240 ml; buy 1 small carton or can)", "meals": ["m1"]},
+      {"item": "Lager", "quantity": "12 fl oz (355 ml; 1 bottle or can)", "meals": ["m1"]}
+    ]
+  }
+}

@@ -87,25 +87,30 @@ export function PrepCheckbox({ children, className }: PrepCheckboxProps) {
     const [, ingredientPart, prepInstructions, suffix] = ingredientMatch;
 
     return (
-      <div className={cn("flex items-start gap-2", className)}>
+      <div
+        className={cn(
+          "-mx-2 flex min-h-11 items-start gap-3 rounded px-2 py-2 transition-colors hover:bg-accent/35",
+          className
+        )}
+      >
         <Checkbox
           checked={checked}
           onCheckedChange={(value) => setChecked(value === true)}
-          className="mt-1.5"
+          className="mt-1"
         />
-        <div
-          className={cn(
-            "flex-1 transition-colors",
-            checked && "text-muted-foreground"
-          )}
-        >
-          <div className={cn("font-medium", checked && "line-through")}>
+        <div className={cn("flex-1 transition-colors", checked && "opacity-55")}>
+          <div
+            className={cn(
+              "font-medium text-ink",
+              checked && "line-through decoration-ink-faint"
+            )}
+          >
             {formatWithEmojiSpacing(ingredientPart.trim())}){suffix}
           </div>
           <div
             className={cn(
-              "text-sm text-muted-foreground mt-0.5 pl-2 border-l-2 border-muted ml-1",
-              checked && "line-through"
+              "mt-1 border-l-2 border-rule pl-3 text-[0.9375rem] text-ink-muted",
+              checked && "line-through decoration-ink-faint"
             )}
           >
             {prepInstructions}
@@ -123,25 +128,30 @@ export function PrepCheckbox({ children, className }: PrepCheckboxProps) {
     const { header, description } = descriptionSplit;
 
     return (
-      <div className={cn("flex items-start gap-2", className)}>
+      <div
+        className={cn(
+          "-mx-2 flex min-h-11 items-start gap-3 rounded px-2 py-2 transition-colors hover:bg-accent/35",
+          className
+        )}
+      >
         <Checkbox
           checked={checked}
           onCheckedChange={(value) => setChecked(value === true)}
-          className="mt-1.5"
+          className="mt-1"
         />
-        <div
-          className={cn(
-            "flex-1 transition-colors",
-            checked && "text-muted-foreground"
-          )}
-        >
-          <div className={cn("font-medium", checked && "line-through")}>
+        <div className={cn("flex-1 transition-colors", checked && "opacity-55")}>
+          <div
+            className={cn(
+              "font-medium text-ink",
+              checked && "line-through decoration-ink-faint"
+            )}
+          >
             {header}
           </div>
           <div
             className={cn(
-              "text-sm text-muted-foreground mt-0.5 pl-2 border-l-2 border-muted ml-1",
-              checked && "line-through"
+              "mt-1 border-l-2 border-rule pl-3 text-[0.9375rem] text-ink-muted",
+              checked && "line-through decoration-ink-faint"
             )}
           >
             {description}
@@ -153,7 +163,12 @@ export function PrepCheckbox({ children, className }: PrepCheckboxProps) {
 
   // Default single-line rendering for items without prep instructions
   return (
-    <div className={cn("flex items-start gap-2", className)}>
+    <div
+      className={cn(
+        "-mx-2 flex min-h-11 items-start gap-3 rounded px-2 py-2 transition-colors hover:bg-accent/35",
+        className
+      )}
+    >
       <Checkbox
         checked={checked}
         onCheckedChange={(value) => setChecked(value === true)}
@@ -161,8 +176,8 @@ export function PrepCheckbox({ children, className }: PrepCheckboxProps) {
       />
       <span
         className={cn(
-          "flex-1 transition-colors",
-          checked && "text-muted-foreground line-through"
+          "flex-1 font-medium text-ink transition-colors",
+          checked && "line-through decoration-ink-faint opacity-55"
         )}
       >
         {children}

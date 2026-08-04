@@ -1,0 +1,157 @@
+{
+  "week_of": "2026-08-03",
+  "folder_name": "2026-08-03-summer-menu-classics",
+  "generated_at": "2026-08-01T15:17:22-07:00",
+  "servings": 2,
+  "leftovers": true,
+  "theme": "Summer Menu Classics",
+  "difficulty": "normal",
+  "meals": [
+    {
+      "id": "m1",
+      "name": "Spicy Salmon Bowls",
+      "subtitle": "with Marinated Cucumbers",
+      "protein": "salmon",
+      "protein_category": "seafood",
+      "cuisine": "japanese-american",
+      "components": ["garlic-ginger-soy-sauce", "steamed-jasmine-rice", "quick-pickled-cucumbers", "sriracha-mayo"],
+      "key_ingredients": ["salmon fillets", "jasmine rice", "persian cucumbers", "jalapeño", "scallions", "sesame seeds"],
+      "prep_time_minutes": 10,
+      "cook_time_minutes": 12
+    },
+    {
+      "id": "m2",
+      "name": "Smashed Cucumber Peanut Noodle Salad",
+      "subtitle": "with Marinated Tofu",
+      "protein": "tofu",
+      "protein_category": "plant-based",
+      "cuisine": "asian",
+      "components": ["peanut-lime-dressing", "marinated-baked-tofu", "garlic-ginger-soy-sauce"],
+      "key_ingredients": ["rice noodles", "extra-firm tofu", "persian cucumbers", "edamame", "peanut butter", "lime"],
+      "prep_time_minutes": 10,
+      "cook_time_minutes": 10
+    },
+    {
+      "id": "m3",
+      "name": "Shrimp Fried Rice",
+      "subtitle": "with Garlic Butter",
+      "protein": "shrimp",
+      "protein_category": "seafood",
+      "cuisine": "asian",
+      "components": ["steamed-jasmine-rice"],
+      "key_ingredients": ["shrimp", "eggs", "jasmine rice", "edamame", "red bell pepper", "zucchini", "garlic", "butter"],
+      "prep_time_minutes": 10,
+      "cook_time_minutes": 15
+    },
+    {
+      "id": "m4",
+      "name": "Marinated Chicken Shish Kebabs",
+      "subtitle": "with Garlic Herb Noodles",
+      "protein": "chicken thighs",
+      "protein_category": "poultry",
+      "cuisine": "italian-american",
+      "components": ["italian-herb-marinade"],
+      "key_ingredients": ["chicken thighs", "bell pepper", "zucchini", "red onion", "linguine", "parmesan", "parsley"],
+      "prep_time_minutes": 15,
+      "cook_time_minutes": 15
+    },
+    {
+      "id": "m5",
+      "name": "Summer Vegetable Pasta",
+      "subtitle": "with Chicken Italian Sausage",
+      "protein": "chicken italian sausage",
+      "protein_category": "poultry",
+      "cuisine": "italian",
+      "components": ["italian-herb-marinade"],
+      "key_ingredients": ["chicken italian sausage", "zucchini", "bell pepper", "linguine", "parmesan", "red pepper flakes"],
+      "prep_time_minutes": 10,
+      "cook_time_minutes": 20
+    }
+  ],
+  "components": [
+    {
+      "id": "steamed-jasmine-rice",
+      "name": "Steamed Jasmine Rice",
+      "type": "grain",
+      "yield": "~7½ cups cooked",
+      "used_in": ["m1", "m3"]
+    },
+    {
+      "id": "garlic-ginger-soy-sauce",
+      "name": "Garlic-Ginger Soy Sauce",
+      "type": "sauce",
+      "yield": "~1 cup",
+      "used_in": ["m1", "m2"]
+    },
+    {
+      "id": "quick-pickled-cucumbers",
+      "name": "Quick-Pickled Cucumbers",
+      "type": "pickle",
+      "yield": "~1½ cups",
+      "used_in": ["m1"]
+    },
+    {
+      "id": "peanut-lime-dressing",
+      "name": "Peanut-Lime Dressing",
+      "type": "dressing",
+      "yield": "~1 cup",
+      "used_in": ["m2"]
+    },
+    {
+      "id": "marinated-baked-tofu",
+      "name": "Marinated Baked Tofu",
+      "type": "protein",
+      "yield": "4 portions",
+      "used_in": ["m2"]
+    },
+    {
+      "id": "italian-herb-marinade",
+      "name": "Italian Herb Marinade",
+      "type": "marinade",
+      "yield": "~1 cup",
+      "used_in": ["m4", "m5"]
+    },
+    {
+      "id": "sriracha-mayo",
+      "name": "Sriracha Mayo",
+      "type": "sauce",
+      "yield": "~⅓ cup",
+      "used_in": ["m1"]
+    }
+  ],
+  "grocery": {
+    "produce": [
+      { "item": "Garlic", "quantity": "17 cloves (~2 heads)", "meals": ["m1", "m2", "m3", "m4", "m5"] },
+      { "item": "Ginger", "quantity": "one 2-inch piece (~30 g)", "meals": ["m1", "m2"] },
+      { "item": "Persian Cucumbers", "quantity": "7 (~1½ lb / 680 g)", "meals": ["m1", "m2"] },
+      { "item": "Jalapeños", "quantity": "2", "meals": ["m1", "m2"] },
+      { "item": "Scallions", "quantity": "1 bunch (7)", "meals": ["m1", "m2", "m3"] },
+      { "item": "Limes", "quantity": "3", "meals": ["m1", "m2"] },
+      { "item": "Lemons", "quantity": "2", "meals": ["m4", "m5"] },
+      { "item": "Red Bell Peppers", "quantity": "4", "meals": ["m3", "m4", "m5"] },
+      { "item": "Zucchini", "quantity": "5 medium (~2½ lb / 1.1 kg)", "meals": ["m3", "m4", "m5"] },
+      { "item": "Red Onion", "quantity": "1 large", "meals": ["m4"] },
+      { "item": "Flat-Leaf Parsley", "quantity": "1 bunch (~2 oz)", "meals": ["m4", "m5"] }
+    ],
+    "proteins": [
+      { "item": "Salmon Fillets (skin removed)", "quantity": "1½ lb / 680 g", "meals": ["m1"] },
+      { "item": "Extra-Firm Tofu", "quantity": "2 blocks (14 oz / 397 g each)", "meals": ["m2"] },
+      { "item": "Shrimp (peeled & deveined)", "quantity": "1 lb / 454 g", "meals": ["m3"] },
+      { "item": "Boneless-Skinless Chicken Thighs", "quantity": "1½ lb / 680 g", "meals": ["m4"] },
+      { "item": "Chicken Italian Sausage", "quantity": "1 lb / 454 g", "meals": ["m5"] }
+    ],
+    "dairy_eggs": [
+      { "item": "Eggs", "quantity": "3", "meals": ["m3"] },
+      { "item": "Parmesan", "quantity": "4 oz / 113 g wedge", "meals": ["m4", "m5"] }
+    ],
+    "frozen": [
+      { "item": "Shelled Edamame", "quantity": "12 oz / 340 g bag", "meals": ["m2", "m3"] }
+    ],
+    "shelf_stable": [
+      { "item": "Jasmine Rice", "quantity": "2½ cups / 500 g dry", "meals": ["m1", "m3"] },
+      { "item": "Rice Noodles (pad thai width)", "quantity": "8 oz / 227 g", "meals": ["m2"] },
+      { "item": "Linguine", "quantity": "1 lb / 454 g", "meals": ["m4", "m5"] },
+      { "item": "Mayonnaise", "quantity": "⅓ cup / 75 g", "meals": ["m1"] }
+    ]
+  }
+}

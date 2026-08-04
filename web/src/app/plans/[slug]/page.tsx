@@ -1,42 +1,27 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { Badge } from "@/components/ui/badge";
-import { Card, CardContent } from "@/components/ui/card";
+import type { Metadata } from "next";
 import { PlanNav } from "@/components/plans/plan-nav";
+import { FolioHeader } from "@/components/plans/folio-header";
+import { PrintButton } from "@/components/plans/print-button";
 import { getPlan } from "@/lib/plans";
+import { formatWeek, categoryColor } from "@/lib/format";
 
 interface PlanPageProps {
   params: Promise<{ slug: string }>;
 }
 
-// Get protein category styling
-function getCategoryStyle(category: string) {
-  const styles: Record<string, { bg: string; border: string; accent: string }> = {
-    seafood: {
-      bg: "bg-blue-50 dark:bg-blue-950/30",
-      border: "border-blue-200 dark:border-blue-800",
-      accent: "text-blue-600 dark:text-blue-400",
-    },
-    poultry: {
-      bg: "bg-amber-50 dark:bg-amber-950/30",
-      border: "border-amber-200 dark:border-amber-800",
-      accent: "text-amber-600 dark:text-amber-400",
-    },
-    "red meat": {
-      bg: "bg-red-50 dark:bg-red-950/30",
-      border: "border-red-200 dark:border-red-800",
-      accent: "text-red-600 dark:text-red-400",
-    },
-    vegetarian: {
-      bg: "bg-green-50 dark:bg-green-950/30",
-      border: "border-green-200 dark:border-green-800",
-      accent: "text-green-600 dark:text-green-400",
-    },
-  };
-  return styles[category] || {
-    bg: "bg-muted/30",
-    border: "border-border",
-    accent: "text-muted-foreground",
+export async function generateMetadata({
+  params,
+}: PlanPageProps): Promise<Metadata> {
+  const { slug } = await params;
+  const plan = await getPlan(slug);
+  if (!plan) return { title: "Plan not found" };
+  return {
+    title: plan.theme,
+    description: `${plan.meals.length} dinners for the week of ${formatWeek(
+      plan.week_of
+    )} — ${plan.meals.map((meal) => meal.name).join(", ")}.`,
   };
 }
 
@@ -48,95 +33,124 @@ export default async function PlanPage({ params }: PlanPageProps) {
     notFound();
   }
 
-  // Format the week date
-  const weekDate = new Date(plan.week_of + "T00:00:00");
-  const formattedDate = weekDate.toLocaleDateString("en-US", {
-    month: "long",
-    day: "numeric",
-    year: "numeric",
-  });
+  const totalMinutes = plan.meals.reduce(
+    (sum, meal) => sum + meal.prep_time_minutes + meal.cook_time_minutes,
+    0
+  );
 
   return (
     <div>
-      {/* Hero Header */}
-      <div className="mb-8">
-        <div className="flex items-center gap-2 text-sm text-muted-foreground mb-2">
-          <span>Week of {formattedDate}</span>
-          <span>&middot;</span>
-          <span>{plan.servings} servings</span>
-          {plan.leftovers && (
-            <>
-              <span>&middot;</span>
-              <span>With leftovers</span>
-            </>
-          )}
-        </div>
-        <h1 className="text-4xl font-bold tracking-tight mb-3">{plan.theme}</h1>
-        <Badge variant="outline" className="text-sm">
-          {plan.difficulty}
-        </Badge>
-      </div>
+      <FolioHeader
+        kicker={`Week of ${formatWeek(plan.week_of)}`}
+        title={plan.theme}
+        actions={<PrintButton label="Print menu" />}
+        meta={[
+          <>
+            {plan.meals.length} dinners
+          </>,
+          <>{plan.servings} servings</>,
+          <>{plan.difficulty} prep</>,
+          <>{totalMinutes} min of weeknight cooking</>,
+          ...(plan.leftovers ? [<>with leftovers</>] : []),
+        ]}
+      />
 
       <PlanNav slug={slug} />
 
-      {/* Meal Grid */}
-      <div className="grid gap-6">
-        {plan.meals.map((meal, index) => {
-          const style = getCategoryStyle(meal.protein_category);
-          const mealNumber = index + 1;
-          const totalTime = meal.prep_time_minutes + meal.cook_time_minutes;
+      {/* The menu, set as a tasting card */}
+      <section aria-labelledby="menu-heading">
+        <h2 id="menu-heading" className="label-lg mb-4 text-ink">
+          The menu
+        </h2>
 
-          return (
-            <Link key={meal.id} href={`/plans/${slug}/recipes/${meal.id}`}>
-              <Card
-                className={`overflow-hidden transition-all hover:shadow-lg hover:scale-[1.01] cursor-pointer border-l-4 ${style.border}`}
-              >
-                <CardContent className={`p-6 ${style.bg}`}>
-                  <div className="flex items-start gap-4">
-                    {/* Meal Number */}
-                    <div
-                      className={`flex-shrink-0 flex h-12 w-12 items-center justify-center rounded-full bg-background border-2 ${style.border} ${style.accent} text-xl font-bold`}
-                    >
-                      {mealNumber}
-                    </div>
+        <ol className="-ml-4 space-y-1">
+          {plan.meals.map((meal, index) => {
+            const totalTime = meal.prep_time_minutes + meal.cook_time_minutes;
 
-                    {/* Meal Content */}
-                    <div className="flex-1 min-w-0">
-                      <div className="flex items-start justify-between gap-4">
-                        <div>
-                          <h2 className="text-xl font-semibold mb-1">
-                            {meal.name}
-                          </h2>
-                          {meal.subtitle && (
-                            <p className="text-muted-foreground italic mb-3">
-                              {meal.subtitle}
-                            </p>
-                          )}
-                        </div>
-                        <div className="flex-shrink-0 flex items-center gap-2">
-                          <Badge variant="secondary" className="text-xs">
-                            {totalTime} min
-                          </Badge>
-                          <Badge variant="outline" className={style.accent}>
-                            {meal.protein}
-                          </Badge>
-                        </div>
-                      </div>
+            return (
+              <li key={meal.id}>
+                <Link
+                  href={`/plans/${slug}/recipes/${meal.id}`}
+                  className="index-row grid grid-cols-[2.75rem_1fr] items-start gap-x-5 gap-y-3 py-7 pl-4 pr-2 sm:grid-cols-[3.5rem_1fr_11rem]"
+                >
+                  <span className="num-block size-10 text-base">
+                    {index + 1}
+                  </span>
 
-                      {/* Key Ingredients */}
-                      {meal.key_ingredients.length > 0 && (
-                        <p className="text-sm text-muted-foreground">
-                          {meal.key_ingredients.join(" · ")}
-                        </p>
-                      )}
-                    </div>
+                  <div className="min-w-0">
+                    <h3 className="display text-[clamp(1.5rem,2.8vw,1.9rem)] text-ink">
+                      {meal.name}
+                    </h3>
+                    {meal.subtitle && (
+                      <p className="display-quiet mt-2 text-[1.0625rem] italic text-ink-muted">
+                        {meal.subtitle}
+                      </p>
+                    )}
+                    {meal.key_ingredients.length > 0 && (
+                      <p className="mt-3.5 text-[0.9375rem] leading-relaxed text-ink-faint">
+                        {meal.key_ingredients.join(" · ")}
+                      </p>
+                    )}
                   </div>
-                </CardContent>
-              </Card>
-            </Link>
-          );
-        })}
-      </div>
+
+                  <div className="col-span-2 flex items-center gap-3 sm:col-span-1 sm:flex-col sm:items-end sm:gap-2 sm:pt-2">
+                    <span className="label-lg text-ink">{totalTime} min</span>
+                    <span className="data flex items-center gap-2 text-ink-muted sm:text-right">
+                      <span
+                        className={categoryColor(meal.protein_category)}
+                        title={meal.protein_category}
+                      >
+                        <span className="cat-dot" />
+                      </span>
+                      <span className="whitespace-nowrap">{meal.protein}</span>
+                    </span>
+                  </div>
+                </Link>
+              </li>
+            );
+          })}
+        </ol>
+      </section>
+
+      {/* Components — made once on Sunday, spent across the week */}
+      {plan.components.length > 0 && (
+        <section aria-labelledby="components-heading" className="mt-16">
+          <h2 id="components-heading" className="label-lg mb-4 text-ink">
+            Made on Sunday
+          </h2>
+
+          <ul className="-ml-4 space-y-0.5">
+            {plan.components.map((component) => (
+              <li key={component.id}>
+                <Link
+                  href={`/plans/${slug}/components/${component.id}`}
+                  className="index-row grid grid-cols-[1fr_auto] items-baseline gap-x-6 gap-y-1.5 py-4 pl-4 pr-2 sm:grid-cols-[1fr_10rem_auto]"
+                >
+                  <span className="display-quiet text-[1.0625rem] text-ink">
+                    {component.name}
+                  </span>
+                  <span className="data hidden text-ink-faint sm:block">
+                    {component.yield}
+                  </span>
+                  <span className="flex items-center gap-1.5">
+                    {component.used_in.map((mealId) => (
+                      <span
+                        key={mealId}
+                        className="label bg-ink px-1.5 py-1 text-paper"
+                      >
+                        {mealId}
+                      </span>
+                    ))}
+                  </span>
+                  <span className="data text-ink-faint sm:hidden">
+                    {component.yield}
+                  </span>
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
     </div>
   );
 }

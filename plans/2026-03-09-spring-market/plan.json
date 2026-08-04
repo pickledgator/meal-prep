@@ -1,0 +1,110 @@
+{
+  "week_of": "2026-03-09",
+  "folder_name": "2026-03-09-spring-market",
+  "generated_at": "2026-03-08T12:00:00-08:00",
+  "servings": 2,
+  "leftovers": false,
+  "theme": "Spring Market",
+  "difficulty": "normal",
+  "meals": [
+    {
+      "id": "m1",
+      "name": "Slow Cooker Chipotle-Lime Chicken Tacos",
+      "subtitle": "with Cabbage Slaw & Lime Crema",
+      "protein": "chicken thighs",
+      "protein_category": "poultry",
+      "cuisine": "mexican",
+      "components": ["slow-cooker-chipotle-lime-chicken", "quick-pickled-red-onion", "lime-crema"],
+      "key_ingredients": ["bone-in chicken thighs", "chipotle in adobo", "lime", "cabbage", "avocado", "cotija"],
+      "prep_time_minutes": 5,
+      "cook_time_minutes": 15
+    },
+    {
+      "id": "m2",
+      "name": "Lamb Kofta with Mint Yogurt",
+      "subtitle": "with Herbed Rice & Cucumber-Tomato Salad",
+      "protein": "ground lamb",
+      "protein_category": "red meat",
+      "cuisine": "middle eastern",
+      "components": ["mint-herb-yogurt"],
+      "key_ingredients": ["ground lamb", "cumin", "coriander", "mint", "cucumber", "tomato", "rice"],
+      "prep_time_minutes": 5,
+      "cook_time_minutes": 20
+    },
+    {
+      "id": "m3",
+      "name": "Seared Scallops with Spring Pea Puree",
+      "subtitle": "with Sautéed Snap Peas & Sourdough",
+      "protein": "sea scallops",
+      "protein_category": "seafood",
+      "cuisine": "french",
+      "components": [],
+      "key_ingredients": ["sea scallops", "English peas", "sugar snap peas", "mint", "lemon", "shallot"],
+      "prep_time_minutes": 10,
+      "cook_time_minutes": 15
+    }
+  ],
+  "components": [
+    {
+      "id": "slow-cooker-chipotle-lime-chicken",
+      "name": "Slow Cooker Chipotle-Lime Chicken",
+      "type": "protein",
+      "yield": "~2 cups shredded",
+      "used_in": ["m1"]
+    },
+    {
+      "id": "quick-pickled-red-onion",
+      "name": "Quick-Pickled Red Onion",
+      "type": "condiment",
+      "yield": "~½ cup",
+      "used_in": ["m1", "m2"]
+    },
+    {
+      "id": "lime-crema",
+      "name": "Lime Crema",
+      "type": "sauce",
+      "yield": "~⅓ cup",
+      "used_in": ["m1"]
+    },
+    {
+      "id": "mint-herb-yogurt",
+      "name": "Mint-Herb Yogurt",
+      "type": "sauce",
+      "yield": "~½ cup",
+      "used_in": ["m2"]
+    }
+  ],
+  "grocery": {
+    "produce": [
+      {"item": "Green Cabbage", "quantity": "¼ small head / ~6 oz / 170 g", "meals": ["m1"]},
+      {"item": "Red Onion", "quantity": "1 large", "meals": ["m1", "m2"]},
+      {"item": "Garlic", "quantity": "6 cloves", "meals": ["m1", "m2"]},
+      {"item": "Limes", "quantity": "3", "meals": ["m1"]},
+      {"item": "Lemons", "quantity": "2", "meals": ["m2", "m3"]},
+      {"item": "Avocado", "quantity": "1", "meals": ["m1"]},
+      {"item": "Persian Cucumber", "quantity": "1", "meals": ["m2"]},
+      {"item": "Roma Tomatoes", "quantity": "2", "meals": ["m2"]},
+      {"item": "Sugar Snap Peas", "quantity": "6 oz / 170 g", "meals": ["m3"]},
+      {"item": "Shallot", "quantity": "1", "meals": ["m3"]},
+      {"item": "Cilantro", "quantity": "1 bunch", "meals": ["m1"]},
+      {"item": "Flat-Leaf Parsley", "quantity": "1 bunch", "meals": ["m2", "m3"]},
+      {"item": "Fresh Mint", "quantity": "1 small bunch", "meals": ["m2", "m3"]}
+    ],
+    "proteins": [
+      {"item": "Bone-In Skin-On Chicken Thighs", "quantity": "1.5 lbs / 680 g (~3 thighs)", "meals": ["m1"]},
+      {"item": "Ground Lamb", "quantity": "½ lb / 227 g", "meals": ["m2"]},
+      {"item": "Dry-Packed Sea Scallops", "quantity": "¾ lb / 340 g (6-8 large)", "meals": ["m3"]}
+    ],
+    "dairy_eggs": [
+      {"item": "Greek Yogurt", "quantity": "¾ cup / 180 g", "meals": ["m1", "m2"]},
+      {"item": "Cotija Cheese", "quantity": "2 oz / 57 g", "meals": ["m1"]}
+    ],
+    "shelf_stable": [
+      {"item": "Corn Tortillas", "quantity": "8-12 small", "meals": ["m1"]},
+      {"item": "Long-Grain White Rice", "quantity": "¾ cup / 150 g", "meals": ["m2"]},
+      {"item": "Chipotle Peppers in Adobo", "quantity": "1 small can (7 oz)", "meals": ["m1"]},
+      {"item": "Chicken Stock", "quantity": "½ cup / 120 ml", "meals": ["m1"]},
+      {"item": "Frozen English Peas", "quantity": "1 cup / 150 g", "meals": ["m3"]}
+    ]
+  }
+}

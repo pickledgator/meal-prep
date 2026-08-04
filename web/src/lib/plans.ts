@@ -98,8 +98,12 @@ export async function getRecipeFile(
     const recipesDir = path.join(PLANS_DIR, slug, "recipes");
     const files = await fs.readdir(recipesDir);
 
-    // Find the recipe file that starts with the recipeId (e.g., m1-)
-    const recipeFile = files.find((f) => f.startsWith(`${recipeId}-`));
+    // Accept a meal id ("m1"), a bare filename ("m1-seared-cod"), or one with
+    // the extension — markdown cross-links use the full name.
+    const bare = recipeId.replace(/\.md$/, "");
+    const recipeFile =
+      files.find((f) => f === `${bare}.md`) ??
+      files.find((f) => f.startsWith(`${bare}-`));
     if (!recipeFile) {
       return null;
     }

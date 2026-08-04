@@ -22,14 +22,14 @@ Rinse rice, cook with 1.5 cups water. Fluff and cool. (yield: ~3 cups cooked)
 - ☐ Fresh Ginger (2-inch piece; peel and finely grate, ~2 tsp)¹³🫙
   - Allocate: 1 tsp for glaze¹ | 1 tsp for vinaigrette¹³
 - ☐ Lemon (3)¹²³🫙
-  - Zest all 3 (need ~1 Tbsp total for gremolata + vinaigrette)
-  - Juice 2 lemons (~4 Tbsp juice for vinaigrette + serving)
-  - Reserve 1 lemon for wedges (serving)
+  - Zest all 3 (need ~1 Tbsp total for gremolata + brown butter)
+  - Juice 2 lemons (~4 Tbsp juice for vinaigrette + brown butter)
+  - Reserve 1 lemon for wedges (serving M1)
 - ☐ Orange (2)¹³🫙
   - Zest 1 orange (~1 tsp for vinaigrette)
   - Juice both oranges (~1/3 cup juice for vinaigrette + chicken)
   - Slice remaining orange into 1/4-inch rounds (for chicken braise)³
-- ☐ Flat-Leaf Parsley (1 bunch; wash, dry, finely chop ~3 Tbsp)¹²³🫙
+- ☐ Flat-Leaf Parsley (1 bunch; wash, dry, finely chop ~4 Tbsp / 1/4 cup)¹²³🫙
   - Allocate: all for gremolata (used across all 3 meals)
 - ☐ Scallions (2; thinly slice, white and green parts separate)¹
 
@@ -50,8 +50,8 @@ Using: 1 clove garlic (minced), 1 tsp ginger (grated), 2 Tbsp lemon juice, 2 Tbs
 (yield: ~1/2 cup)
 
 ☐ **Gremolata** — see `components/gremolata.md`¹²³
-Using: 2 cloves garlic (minced), 2 tsp lemon zest, 3 Tbsp parsley
-(yield: ~1/4 cup)
+Using: 2 cloves garlic (minced), 1 Tbsp lemon zest, 4 Tbsp parsley
+(yield: ~1/3 cup)
 
 ☐ **Sesame Rice** — see `components/sesame-rice.md`¹³
 Using: 3 cups cooked rice, 1 Tbsp sesame seeds (toasted), 1 tsp sesame oil

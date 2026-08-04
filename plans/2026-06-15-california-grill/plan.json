@@ -1,0 +1,117 @@
+{
+  "week_of": "2026-06-15",
+  "folder_name": "2026-06-15-california-grill",
+  "generated_at": "2026-06-14T11:00:00-07:00",
+  "servings": 4,
+  "leftovers": false,
+  "theme": "California Summer Grill",
+  "difficulty": "normal",
+  "meals": [
+    {
+      "id": "m1",
+      "name": "Grilled Wild Salmon",
+      "subtitle": "with Charred Corn Salad & Apricot-Basil Salsa",
+      "protein": "wild salmon",
+      "protein_category": "seafood",
+      "cuisine": "californian",
+      "components": ["apricot-salsa", "charred-corn"],
+      "key_ingredients": ["wild salmon fillets", "apricots", "sweet corn", "cherry tomatoes", "cannellini beans", "basil"],
+      "prep_time_minutes": 15,
+      "cook_time_minutes": 12
+    },
+    {
+      "id": "m2",
+      "name": "Lemon-Oregano Chicken Farro Bowl",
+      "subtitle": "with Grilled Zucchini & Lemon-Basil Yogurt",
+      "protein": "chicken thighs",
+      "protein_category": "poultry",
+      "cuisine": "mediterranean",
+      "components": ["farro", "charred-corn", "lemon-basil-yogurt"],
+      "key_ingredients": ["boneless-skinless chicken thighs", "farro", "zucchini", "sweet corn", "lemon", "greek yogurt", "basil"],
+      "prep_time_minutes": 20,
+      "cook_time_minutes": 18
+    },
+    {
+      "id": "m3",
+      "name": "Chimichurri Flank Steak",
+      "subtitle": "with Farro & Grilled Summer Vegetables",
+      "protein": "flank steak",
+      "protein_category": "red meat",
+      "cuisine": "argentine",
+      "components": ["chimichurri", "farro", "lemon-basil-yogurt"],
+      "key_ingredients": ["flank steak", "farro", "zucchini", "bell peppers", "red onion", "parsley", "garlic"],
+      "prep_time_minutes": 15,
+      "cook_time_minutes": 18
+    }
+  ],
+  "components": [
+    {
+      "id": "farro",
+      "name": "Pot of Farro",
+      "type": "grain",
+      "yield": "~6 cups cooked",
+      "used_in": ["m2", "m3"]
+    },
+    {
+      "id": "charred-corn",
+      "name": "Charred Sweet Corn",
+      "type": "prep",
+      "yield": "~3 cups kernels",
+      "used_in": ["m1", "m2"]
+    },
+    {
+      "id": "lemon-basil-yogurt",
+      "name": "Lemon-Basil Yogurt",
+      "type": "sauce",
+      "yield": "~1½ cups",
+      "used_in": ["m2", "m3"]
+    },
+    {
+      "id": "chimichurri",
+      "name": "Chimichurri",
+      "type": "sauce",
+      "yield": "~1 cup",
+      "used_in": ["m3"]
+    },
+    {
+      "id": "apricot-salsa",
+      "name": "Apricot-Basil Salsa",
+      "type": "sauce",
+      "yield": "~1½ cups",
+      "used_in": ["m1"]
+    }
+  ],
+  "grocery": {
+    "produce": [
+      { "item": "Garlic", "quantity": "8 cloves", "meals": ["m2", "m3"] },
+      { "item": "Lemon", "quantity": "4", "meals": ["m1", "m2", "m3"] },
+      { "item": "Lime", "quantity": "2", "meals": ["m1"] },
+      { "item": "Apricots", "quantity": "5 (~½ lb / 250 g)", "meals": ["m1"] },
+      { "item": "Sweet Corn", "quantity": "4 ears", "meals": ["m1", "m2"] },
+      { "item": "Cherry/Grape Tomatoes", "quantity": "1 lb / 454 g", "meals": ["m1", "m2"] },
+      { "item": "Zucchini", "quantity": "4 medium (~1½ lb / 680 g)", "meals": ["m2", "m3"] },
+      { "item": "Bell Peppers", "quantity": "2 (red/yellow)", "meals": ["m3"] },
+      { "item": "Red Onion", "quantity": "1 large", "meals": ["m1", "m3"] },
+      { "item": "Persian Cucumbers", "quantity": "2", "meals": ["m1"] },
+      { "item": "Jalapeño", "quantity": "1", "meals": ["m1"] },
+      { "item": "Arugula", "quantity": "5 oz / 142 g", "meals": ["m1", "m2"] },
+      { "item": "Basil", "quantity": "1 large bunch (~1½ oz)", "meals": ["m1", "m2", "m3"] },
+      { "item": "Flat-Leaf Parsley", "quantity": "1 large bunch (~2 oz)", "meals": ["m3"] }
+    ],
+    "proteins": [
+      { "item": "Wild Salmon Fillets", "quantity": "4 × 6 oz / 170 g (1½ lb / 680 g total)", "meals": ["m1"] },
+      { "item": "Boneless-Skinless Chicken Thighs", "quantity": "1¾ lb / 794 g", "meals": ["m2"] },
+      { "item": "Flank Steak", "quantity": "1½ lb / 680 g", "meals": ["m3"] }
+    ],
+    "dairy_eggs": [
+      { "item": "Greek Yogurt (full-fat)", "quantity": "1¼ cup / 280 g", "meals": ["m2", "m3"] }
+    ],
+    "cheese": [
+      { "item": "Feta", "quantity": "6 oz / 170 g", "meals": ["m1", "m2"] }
+    ],
+    "shelf_stable": [
+      { "item": "Farro", "quantity": "2 cups dry / 370 g", "meals": ["m2", "m3"] },
+      { "item": "Cannellini Beans", "quantity": "1 can (15 oz / 425 g)", "meals": ["m1"] }
+    ]
+  }
+}

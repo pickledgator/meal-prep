@@ -1,0 +1,113 @@
+{
+  "week_of": "2026-02-02",
+  "folder_name": "2026-02-02-caribbean",
+  "generated_at": "2026-01-27T20:00:00Z",
+  "servings": 2,
+  "leftovers": false,
+  "theme": "Caribbean",
+  "difficulty": "normal",
+  "meals": [
+    {
+      "id": "m1",
+      "name": "Mojo Chicken Thighs",
+      "subtitle": "with Coconut Rice and Charred Broccolini",
+      "protein": "chicken thighs",
+      "protein_category": "poultry",
+      "cuisine": "cuban",
+      "components": ["cuban-mojo-marinade", "coconut-rice", "citrus-herb-oil"],
+      "key_ingredients": ["chicken thighs", "orange", "lime", "garlic", "coconut milk", "broccolini"],
+      "prep_time_minutes": 10,
+      "cook_time_minutes": 25
+    },
+    {
+      "id": "m2",
+      "name": "Coconut-Lime Snapper",
+      "subtitle": "with Black Beans and Garlicky Kale",
+      "protein": "red snapper",
+      "protein_category": "seafood",
+      "cuisine": "caribbean",
+      "components": ["coconut-lime-sauce", "citrus-herb-oil"],
+      "key_ingredients": ["red snapper", "coconut milk", "lime", "black beans", "kale", "garlic"],
+      "prep_time_minutes": 8,
+      "cook_time_minutes": 20
+    },
+    {
+      "id": "m3",
+      "name": "Jerk-Spiced Cauliflower Steaks",
+      "subtitle": "with Rice & Peas and Orange-Cabbage Slaw",
+      "protein": "vegetarian",
+      "protein_category": "vegetarian",
+      "cuisine": "jamaican",
+      "components": ["jerk-spice-blend", "coconut-rice", "citrus-herb-oil"],
+      "key_ingredients": ["cauliflower", "kidney beans", "rice", "coconut milk", "cabbage", "orange"],
+      "prep_time_minutes": 10,
+      "cook_time_minutes": 25
+    }
+  ],
+  "components": [
+    {
+      "id": "cuban-mojo-marinade",
+      "name": "Cuban Mojo Marinade",
+      "type": "marinade",
+      "yield": "3/4 cup",
+      "used_in": ["m1"]
+    },
+    {
+      "id": "coconut-lime-sauce",
+      "name": "Coconut-Lime Sauce",
+      "type": "sauce",
+      "yield": "1 cup",
+      "used_in": ["m2"]
+    },
+    {
+      "id": "jerk-spice-blend",
+      "name": "Jerk Spice Blend",
+      "type": "spice mix",
+      "yield": "3 Tbsp",
+      "used_in": ["m3"]
+    },
+    {
+      "id": "coconut-rice",
+      "name": "Coconut Rice",
+      "type": "grain",
+      "yield": "4 cups cooked",
+      "used_in": ["m1", "m3"]
+    },
+    {
+      "id": "citrus-herb-oil",
+      "name": "Citrus-Herb Oil",
+      "type": "finishing oil",
+      "yield": "1/3 cup",
+      "used_in": ["m1", "m2", "m3"]
+    }
+  ],
+  "grocery": {
+    "produce": [
+      {"item": "Orange", "quantity": "4", "meals": ["m1", "m3"]},
+      {"item": "Lime", "quantity": "7", "meals": ["m1", "m2", "m3"]},
+      {"item": "Garlic", "quantity": "13 cloves", "meals": ["m1", "m2", "m3"]},
+      {"item": "Fresh Ginger", "quantity": "2-inch piece (~1 oz / 28 g)", "meals": ["m2"]},
+      {"item": "Broccolini", "quantity": "1 bunch (8 oz / 227 g)", "meals": ["m1"]},
+      {"item": "Lacinato Kale", "quantity": "1 bunch (~8 oz / 227 g)", "meals": ["m2"]},
+      {"item": "Green Cabbage", "quantity": "1 small head (~1 lb / 454 g)", "meals": ["m3"]},
+      {"item": "Cauliflower", "quantity": "1 large head (~2 lbs / 907 g)", "meals": ["m3"]},
+      {"item": "Scallions", "quantity": "1 bunch (6-8)", "meals": ["m1", "m2", "m3"]},
+      {"item": "Fresh Cilantro", "quantity": "1 large bunch", "meals": ["m1", "m2", "m3"]},
+      {"item": "Fresh Thyme", "quantity": "1 small bunch", "meals": ["m1", "m2"]},
+      {"item": "Scotch Bonnet or Habanero Pepper", "quantity": "1", "meals": ["m3"]}
+    ],
+    "proteins": [
+      {"item": "Bone-In, Skin-On Chicken Thighs", "quantity": "4 (about 1.5 lbs / 680 g)", "meals": ["m1"]},
+      {"item": "Red Snapper Fillets", "quantity": "2 (6 oz / 170 g each)", "meals": ["m2"]}
+    ],
+    "dairy_eggs": [],
+    "shelf_stable": [
+      {"item": "Coconut Milk (Full-Fat)", "quantity": "2 (13.5 oz / 400 ml) cans", "meals": ["m1", "m2", "m3"]},
+      {"item": "Long-Grain White Rice", "quantity": "1½ cups / 300 g", "meals": ["m1", "m3"]},
+      {"item": "Black Beans", "quantity": "1 (15 oz / 425 g) can", "meals": ["m2"]},
+      {"item": "Red Kidney Beans", "quantity": "1 (15 oz / 425 g) can", "meals": ["m3"]},
+      {"item": "Chicken Stock", "quantity": "1 cup", "meals": ["m2"]},
+      {"item": "Soy Sauce", "quantity": "2 Tbsp", "meals": ["m1", "m2"]}
+    ]
+  }
+}

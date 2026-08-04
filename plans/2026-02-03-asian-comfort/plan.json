@@ -1,0 +1,141 @@
+{
+  "week_of": "2026-02-03",
+  "folder_name": "2026-02-03-asian-comfort",
+  "generated_at": "2026-01-30T12:00:00Z",
+  "servings": 4,
+  "leftovers": false,
+  "theme": "Asian Comfort",
+  "difficulty": "normal",
+  "meals": [
+    {
+      "id": "m1",
+      "name": "Miso-Glazed Salmon",
+      "subtitle": "with Sesame Rice & Roasted Broccolini",
+      "protein": "salmon",
+      "protein_category": "seafood",
+      "cuisine": "japanese",
+      "components": ["miso-glaze", "sesame-ginger-dressing", "jasmine-rice"],
+      "key_ingredients": ["salmon fillets", "white miso", "mirin", "broccolini", "sesame seeds"],
+      "prep_time_minutes": 10,
+      "cook_time_minutes": 20
+    },
+    {
+      "id": "m2",
+      "name": "Gochujang Chicken Thighs",
+      "subtitle": "with Quick-Pickled Vegetables & Rice",
+      "protein": "chicken thighs",
+      "protein_category": "poultry",
+      "cuisine": "korean",
+      "components": ["gochujang-marinade", "quick-pickles", "jasmine-rice"],
+      "key_ingredients": ["bone-in chicken thighs", "gochujang", "soy sauce", "napa cabbage", "daikon"],
+      "prep_time_minutes": 10,
+      "cook_time_minutes": 25
+    },
+    {
+      "id": "m3",
+      "name": "Thai Coconut Curry Shrimp",
+      "subtitle": "with Snap Peas & Jasmine Rice",
+      "protein": "shrimp",
+      "protein_category": "seafood",
+      "cuisine": "thai",
+      "components": ["jasmine-rice"],
+      "key_ingredients": ["large shrimp", "coconut milk", "red curry paste", "snap peas", "bell pepper", "fish sauce", "lime"],
+      "prep_time_minutes": 10,
+      "cook_time_minutes": 15
+    },
+    {
+      "id": "m4",
+      "name": "Crispy Tofu Steaks",
+      "subtitle": "with Mushrooms & Ginger-Soy Broth",
+      "protein": "tofu",
+      "protein_category": "plant-based",
+      "cuisine": "japanese",
+      "components": ["sesame-ginger-dressing", "ginger-soy-broth"],
+      "key_ingredients": ["extra-firm tofu", "shiitake mushrooms", "bok choy", "ginger", "soy sauce"],
+      "prep_time_minutes": 15,
+      "cook_time_minutes": 20
+    }
+  ],
+  "components": [
+    {
+      "id": "miso-glaze",
+      "name": "Miso-Mirin Glaze",
+      "type": "sauce",
+      "yield": "1/2 cup",
+      "used_in": ["m1"]
+    },
+    {
+      "id": "sesame-ginger-dressing",
+      "name": "Sesame-Ginger Dressing",
+      "type": "dressing",
+      "yield": "1 cup",
+      "used_in": ["m1", "m2", "m4"]
+    },
+    {
+      "id": "gochujang-marinade",
+      "name": "Gochujang Marinade",
+      "type": "marinade",
+      "yield": "3/4 cup",
+      "used_in": ["m2"]
+    },
+    {
+      "id": "quick-pickles",
+      "name": "Quick-Pickled Vegetables",
+      "type": "condiment",
+      "yield": "2 cups",
+      "used_in": ["m2", "m3"]
+    },
+    {
+      "id": "jasmine-rice",
+      "name": "Jasmine Rice",
+      "type": "grain",
+      "yield": "6 cups cooked",
+      "used_in": ["m1", "m2", "m3"]
+    },
+    {
+      "id": "ginger-soy-broth",
+      "name": "Ginger-Soy Broth",
+      "type": "sauce",
+      "yield": "1.5 cups",
+      "used_in": ["m4"]
+    }
+  ],
+  "grocery": {
+    "produce": [
+      {"item": "Broccolini", "quantity": "2 bunches (12 oz / 340 g)", "meals": ["m1"]},
+      {"item": "Napa Cabbage", "quantity": "1/2 head (8 oz / 227 g)", "meals": ["m2", "m3"]},
+      {"item": "Daikon Radish", "quantity": "6 inches (8 oz / 227 g)", "meals": ["m2"]},
+      {"item": "Snap Peas", "quantity": "8 oz / 227 g", "meals": ["m3"]},
+      {"item": "Red Bell Pepper", "quantity": "2", "meals": ["m3"]},
+      {"item": "Shiitake Mushrooms", "quantity": "8 oz / 227 g", "meals": ["m4"]},
+      {"item": "Baby Bok Choy", "quantity": "4 heads (1 lb / 454 g)", "meals": ["m4"]},
+      {"item": "Fresh Ginger", "quantity": "5-inch piece (3 oz / 85 g)", "meals": ["m1", "m2", "m3", "m4"]},
+      {"item": "Garlic", "quantity": "2 heads (~16 cloves)", "meals": ["m1", "m2", "m3", "m4"]},
+      {"item": "Scallions", "quantity": "2 bunches (12-14 stalks)", "meals": ["m1", "m2", "m3", "m4"]},
+      {"item": "Lime", "quantity": "3", "meals": ["m3"]},
+      {"item": "Fresh Cilantro", "quantity": "1 large bunch", "meals": ["m2", "m3"]}
+    ],
+    "proteins": [
+      {"item": "Salmon Fillets, skin-on", "quantity": "4 fillets (6 oz / 170 g each)", "meals": ["m1"]},
+      {"item": "Bone-In Skin-On Chicken Thighs", "quantity": "8 thighs (~3 lb / 1.4 kg)", "meals": ["m2"]},
+      {"item": "Large Shrimp, peeled & deveined", "quantity": "1.5 lb / 680 g", "meals": ["m3"]},
+      {"item": "Extra-Firm Tofu", "quantity": "2 blocks (28 oz / 794 g total)", "meals": ["m4"]}
+    ],
+    "dairy_eggs": [],
+    "shelf_stable": [
+      {"item": "White Miso Paste", "quantity": "1/4 cup (70 g)", "meals": ["m1"]},
+      {"item": "Gochujang", "quantity": "1/4 cup (70 g)", "meals": ["m2"]},
+      {"item": "Red Curry Paste", "quantity": "3 Tbsp", "meals": ["m3"]},
+      {"item": "Full-Fat Coconut Milk", "quantity": "1 can (13.5 oz / 400 ml)", "meals": ["m3"]},
+      {"item": "Fish Sauce", "quantity": "3 Tbsp", "meals": ["m3", "m4"]},
+      {"item": "Jasmine Rice", "quantity": "2 cups (400 g) dry", "meals": ["m1", "m2", "m3"]},
+      {"item": "Low-Sodium Soy Sauce", "quantity": "1/2 cup (120 ml)", "meals": ["m1", "m2", "m4"]},
+      {"item": "Mirin", "quantity": "1/2 cup (120 ml)", "meals": ["m1", "m4"]},
+      {"item": "Rice Vinegar", "quantity": "1/4 cup (60 ml)", "meals": ["m1", "m2"]},
+      {"item": "Toasted Sesame Oil", "quantity": "1/4 cup (60 ml)", "meals": ["m1", "m2", "m4"]},
+      {"item": "Sesame Seeds", "quantity": "3 Tbsp", "meals": ["m1", "m2"]},
+      {"item": "Chicken or Vegetable Stock", "quantity": "2 cups (480 ml)", "meals": ["m4"]},
+      {"item": "Cornstarch", "quantity": "2 Tbsp", "meals": ["m4"]}
+    ]
+  }
+}

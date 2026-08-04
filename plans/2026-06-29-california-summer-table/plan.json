@@ -1,0 +1,145 @@
+{
+  "week_of": "2026-06-29",
+  "folder_name": "2026-06-29-california-summer-table",
+  "generated_at": "2026-06-30T12:00:00-07:00",
+  "servings": 8,
+  "leftovers": false,
+  "theme": "California Summer Table",
+  "difficulty": "challenging",
+  "occasion": "Dinner party — 8 guests",
+  "event_date": "2026-07-03",
+  "dietary_notes": [
+    "no pork",
+    "dairy-light (no cream; hard/pasteurized cheese, butter & a little Greek yogurt ok)",
+    "mostly pregnancy-safe: everything cooked through, low-mercury salmon — EXCEPT the smoked trout rillettes, which the expecting guest should skip (or serve warmed into a baked dip)",
+    "6 tri-tip + 2 salmon (pescatarian); 4 salmon fillets prepped as a buffer",
+    "no dessert course"
+  ],
+  "meals": [
+    {
+      "id": "m1",
+      "name": "Heavy Apps",
+      "subtitle": "Marinated Olive Board, Heirloom Tomato Bruschetta & Smoked Trout Rillettes",
+      "protein": "smoked trout",
+      "protein_category": "seafood",
+      "cuisine": "californian",
+      "components": ["white-bean-smash", "smoked-trout-rillettes"],
+      "key_ingredients": ["castelvetrano olives", "marcona almonds", "manchego", "heirloom tomatoes", "sourdough", "cannellini beans", "smoked trout", "radishes", "dill", "basil"],
+      "prep_time_minutes": 45,
+      "cook_time_minutes": 10
+    },
+    {
+      "id": "m2",
+      "name": "Melon, Cucumber & Feta Salad",
+      "subtitle": "with Mint, Chili & Lime",
+      "protein": "vegetarian",
+      "protein_category": "vegetarian",
+      "cuisine": "californian",
+      "components": ["chili-lime-dressing"],
+      "key_ingredients": ["cantaloupe", "persian cucumbers", "feta", "mint", "fresno chili", "lime", "pistachios"],
+      "prep_time_minutes": 20,
+      "cook_time_minutes": 0
+    },
+    {
+      "id": "m3",
+      "name": "Santa Maria Tri-Tip & Wild Salmon",
+      "subtitle": "with Charred Corn Succotash, Grilled Zucchini & Salsa Verde",
+      "protein": "tri-tip (6) / wild salmon (2, pescatarian)",
+      "protein_category": "red meat",
+      "cuisine": "californian",
+      "components": ["santa-maria-rub", "charred-corn-succotash", "salsa-verde"],
+      "key_ingredients": ["tri-tip", "wild salmon fillets", "sweet corn", "cherry tomatoes", "cannellini beans", "zucchini", "basil"],
+      "prep_time_minutes": 40,
+      "cook_time_minutes": 75
+    }
+  ],
+  "components": [
+    {
+      "id": "salsa-verde",
+      "name": "Salsa Verde",
+      "type": "sauce",
+      "yield": "~1½ cups",
+      "used_in": ["m3"]
+    },
+    {
+      "id": "charred-corn-succotash",
+      "name": "Charred Corn Succotash",
+      "type": "side",
+      "yield": "~7 cups (serves 8–10)",
+      "used_in": ["m3"]
+    },
+    {
+      "id": "white-bean-smash",
+      "name": "White Bean Smash",
+      "type": "spread",
+      "yield": "~2½ cups",
+      "used_in": ["m1"]
+    },
+    {
+      "id": "chili-lime-dressing",
+      "name": "Chili-Lime Dressing",
+      "type": "dressing",
+      "yield": "~⅔ cup",
+      "used_in": ["m2"]
+    },
+    {
+      "id": "smoked-trout-rillettes",
+      "name": "Smoked Trout Rillettes",
+      "type": "spread",
+      "yield": "~2 cups",
+      "used_in": ["m1"]
+    },
+    {
+      "id": "santa-maria-rub",
+      "name": "Santa Maria Rub",
+      "type": "spice-blend",
+      "yield": "~⅓ cup (for 2 tri-tips)",
+      "used_in": ["m3"]
+    }
+  ],
+  "grocery": {
+    "produce": [
+      { "item": "Garlic", "quantity": "1 head / ~10–12 cloves", "meals": ["m1", "m3"] },
+      { "item": "Lemon", "quantity": "5", "meals": ["m1", "m3"] },
+      { "item": "Lime", "quantity": "3", "meals": ["m2"] },
+      { "item": "Fresh Basil", "quantity": "1 large bunch / ~2 oz", "meals": ["m1", "m3"] },
+      { "item": "Flat-Leaf Parsley", "quantity": "1 bunch / ~1½ oz", "meals": ["m3"] },
+      { "item": "Fresh Dill", "quantity": "1 small bunch / ~½ oz", "meals": ["m1"] },
+      { "item": "Fresh Mint", "quantity": "1 small bunch / ~¾ oz", "meals": ["m2"] },
+      { "item": "Heirloom Tomatoes", "quantity": "1½–2 lb / 680–900 g", "meals": ["m1"] },
+      { "item": "Cherry or Grape Tomatoes", "quantity": "1 lb / 454 g", "meals": ["m3"] },
+      { "item": "Sweet Corn", "quantity": "6 ears", "meals": ["m3"] },
+      { "item": "Zucchini", "quantity": "4 medium / ~1½ lb / 680 g", "meals": ["m3"] },
+      { "item": "Shallots", "quantity": "2", "meals": ["m1", "m3"] },
+      { "item": "Radishes", "quantity": "1 bunch", "meals": ["m1"] },
+      { "item": "Cantaloupe", "quantity": "1 medium", "meals": ["m2"] },
+      { "item": "Persian Cucumbers", "quantity": "6", "meals": ["m1", "m2"] },
+      { "item": "Fresno Chili", "quantity": "2", "meals": ["m2"] }
+    ],
+    "proteins": [
+      { "item": "Tri-Tip", "quantity": "2 roasts / ~4 lb / 1.8 kg total", "meals": ["m3"] },
+      { "item": "Wild Salmon Fillets", "quantity": "4 × 6 oz / 170 g (1½ lb / 680 g total; 2 to serve + 2 buffer)", "meals": ["m3"] },
+      { "item": "Hot-Smoked Trout", "quantity": "8–10 oz / 250–285 g", "meals": ["m1"] }
+    ],
+    "dairy_cheese": [
+      { "item": "Aged Manchego", "quantity": "8 oz / 227 g", "meals": ["m1"] },
+      { "item": "Feta (pasteurized)", "quantity": "6 oz / 170 g", "meals": ["m2"] },
+      { "item": "Full-Fat Greek Yogurt", "quantity": "½ cup / ~5 oz (or crème fraîche)", "meals": ["m1"] }
+    ],
+    "bakery": [
+      { "item": "Sourdough", "quantity": "1 large loaf / ~1 lb", "meals": ["m1"] },
+      { "item": "Seeded Crackers", "quantity": "1 box", "meals": ["m1"] }
+    ],
+    "shelf_stable": [
+      { "item": "Cannellini Beans", "quantity": "3 cans (15 oz / 425 g each) — 2 smash, 1 succotash", "meals": ["m1", "m3"] },
+      { "item": "Marcona Almonds", "quantity": "8 oz / 227 g", "meals": ["m1"] },
+      { "item": "Castelvetrano Olives", "quantity": "12 oz / 340 g (~2 cups)", "meals": ["m1"] },
+      { "item": "Capers", "quantity": "1 jar / ~4 oz / 113 g", "meals": ["m1", "m3"] },
+      { "item": "Shelled Pistachios", "quantity": "½ cup / ~2½ oz / 70 g", "meals": ["m2"] }
+    ],
+    "optional": [
+      { "item": "Anchovy Fillets", "quantity": "2–3", "meals": ["m3"] },
+      { "item": "Watermelon or Honeydew", "quantity": "½ small", "meals": ["m2"] }
+    ]
+  }
+}
