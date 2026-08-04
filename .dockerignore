@@ -1,0 +1,15 @@
+node_modules
+**/node_modules
+**/dist
+.git
+.env
+web/.env.local
+local.db*
+server/local.db*
+# Generator workspace + archives — the app must never depend on these
+plans
+examples
+feedback
+payloads
+.claude
+.agents
