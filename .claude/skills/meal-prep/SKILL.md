@@ -633,7 +633,7 @@ Always validate these high-risk ingredients:
 
 After ingesting the plan and completing validation, provide a brief summary:
 
-- Plan slug ingested (link it: `https://meal-prep.fly.dev/plans/<slug>`, or `http://localhost:5173/plans/<slug>` in dev)
+- Plan slug ingested (link it: `https://meal-prep-nic.fly.dev/plans/<slug>`, or `http://localhost:5174/plans/<slug>` in dev)
 - Number of meals planned
 - Theme/cuisine direction
 - Highlight 1-2 interesting dishes

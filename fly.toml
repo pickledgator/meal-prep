@@ -2,7 +2,7 @@
 # Unlike trip-planning there is no in-memory SSE here, so one machine is a cost
 # choice, not a correctness requirement; auto_stop_machines = "stop" is a safe
 # tweak later if idle cost matters more than cold starts.
-app = "meal-prep"
+app = "meal-prep-nic" # "meal-prep" was taken globally
 primary_region = "sjc"
 
 [build]
